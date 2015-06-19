@@ -28,5 +28,10 @@
         </div>
     </div>
 </div>
-
+<p>{{blogs}}</p>
+<ul>
+    <li ng-repeat="blog in blogs">
+        {{blog._id}} - {{blog._name}}
+    </li>
+</ul>
 <p>{{models.lists.A}}</p>
