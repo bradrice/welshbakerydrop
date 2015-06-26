@@ -1,4 +1,6 @@
 <!-- blogs.xml -->
 <blogs>
     <blog name="my first blog" id="1"/>
+    <blog name="my second blog" id="2"/>
+    <blog name="my third blog" id="3"/>
 </blogs>

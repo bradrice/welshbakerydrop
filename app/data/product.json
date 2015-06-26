@@ -1,0 +1,364 @@
+{
+  "Products": {
+    "Product": {
+      "ProductName": [
+        {
+          "Id": "1001",
+          "Name": "2 Packs",
+          "Quantity": "2",
+          "Price": "12.88",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea990",
+          "CatalogId": "123"
+        },
+        {
+          "Id": "1002",
+          "Name": "6 Packs",
+          "Quantity": "6",
+          "Price": "28.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea976",
+          "CatalogId": "112"
+        },
+        {
+          "Id": "1003",
+          "Name": "12 Packs",
+          "Quantity": "12",
+          "Price": "48.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea977",
+          "CatalogId": "113"
+        },
+        {
+          "Id": "1004",
+          "Name": "18 Packs",
+          "Quantity": "18",
+          "Price": "66.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea978",
+          "CatalogId": "114"
+        },
+        {
+          "Id": "1005",
+          "Name": "24 Packs",
+          "Quantity": "24",
+          "Price": "86.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea979",
+          "CatalogId": "115"
+        },
+        {
+          "Id": "1006",
+          "Name": "30 Packs",
+          "Quantity": "30",
+          "Price": "98.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea1964",
+          "CatalogId": "140"
+        },
+        {
+          "Id": "1007",
+          "Name": "36 Packs",
+          "Quantity": "36",
+          "Price": "109.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "0",
+          "ExtraQuantity": "0",
+          "YourOption": "textarea1965",
+          "CatalogId": "141"
+        },
+        {
+          "Id": "2001",
+          "Name": "2 Packs + 4 Extras",
+          "Quantity": "2",
+          "Price": "41.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "4",
+          "YourOption": "textarea980",
+          "CatalogId": "116"
+        },
+        {
+          "Id": "2002",
+          "Name": "5 Packs + 2 Extras",
+          "Quantity": "5",
+          "Price": "41.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "2",
+          "YourOption": "textarea981",
+          "CatalogId": "117"
+        },
+        {
+          "Id": "2003",
+          "Name": "8 Packs + 2 Extras",
+          "Quantity": "8",
+          "Price": "48.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "2",
+          "YourOption": "textarea982",
+          "CatalogId": "121"
+        },
+        {
+          "Id": "2004",
+          "Name": "10 Packs + 1 Extras",
+          "Quantity": "10",
+          "Price": "48.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "1",
+          "YourOption": "textarea983",
+          "CatalogId": "122"
+        },
+        {
+          "Id": "2005",
+          "Name": "12 Packs + 3 Extras",
+          "Quantity": "12",
+          "Price": "64.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "3",
+          "YourOption": "textarea1961",
+          "CatalogId": "137"
+        },
+        {
+          "Id": "2006",
+          "Name": "18 Packs + 2 Extras",
+          "Quantity": "18",
+          "Price": "76.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "2",
+          "YourOption": "textarea1962",
+          "CatalogId": "138"
+        },
+        {
+          "Id": "2007",
+          "Name": "24 Packs + 2 Extras",
+          "Quantity": "24",
+          "Price": "95.88",
+          "ProductUrl": "http://www.welshbaker.com/boxdeals",
+          "Extra": "1",
+          "ExtraQuantity": "2",
+          "YourOption": "textarea1963",
+          "CatalogId": "139"
+        }
+      ]
+    },
+    "Flavor": {
+      "FlavorName": [
+        {
+          "Id": "1",
+          "ProductId": "1001",
+          "Name": "Classic WelshCakes"
+        },
+        {
+          "Id": "2",
+          "ProductId": "1001",
+          "Name": "Currant WelshCakes"
+        },
+        {
+          "Id": "3",
+          "ProductId": "1001",
+          "Name": "Cinnamon WelshCakes"
+        },
+        {
+          "Id": "4",
+          "ProductId": "1001",
+          "Name": "CranOrange WelshCakes"
+        },
+        {
+          "Id": "5",
+          "ProductId": "1001",
+          "Name": "Blueberry WelshCakes"
+        },
+        {
+          "Id": "6",
+          "ProductId": "1001",
+          "Name": "Lemon Poppy WelshCakes"
+        },
+        {
+          "Id": "7",
+          "ProductId": "1001",
+          "Name": "Maple Pecan WelshCakes"
+        },
+        {
+          "Id": "8",
+          "ProductId": "1001",
+          "Name": "Cherry Almond WelshCakes"
+        },
+        {
+          "Id": "9",
+          "ProductId": "1001",
+          "Name": "Chocolate Chip WelshCakes"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Blueberry Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "20",
+          "ProductId": "2002",
+          "Name": "Cranberry Orange Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Maple Pecan Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Currant Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Chocolate Chip Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "15",
+          "ProductId": "1009A",
+          "Name": "Griddled Shortbread",
+          "ExcludedId": "1001"
+        },
+        {
+          "Id": "31",
+          "ProductId": "1007",
+          "Name": "WF CranOrange WelshCakes"
+        },
+        {
+          "Id": "10",
+          "ProductId": "1004",
+          "Name": "WF Oatmeal WelshCakes"
+        },
+        {
+          "Id": "30",
+          "ProductId": "1005",
+          "Name": "WF Currant WelshCakes"
+        },
+        {
+          "Id": "31",
+          "ProductId": "6005-Blue",
+          "Name": "WF Blueberry WelshCakes"
+        }
+      ],
+      "FlavaName": [
+        {
+          "Id": "99",
+          "ProductId": "1001",
+          "Name": "Banana Choc WelshCakes"
+        },
+        {
+          "Id": "10",
+          "ProductId": "1004",
+          "Name": "Gingerbread WelshCakes"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Two ChocDip WelshCakes"
+        },
+        {
+          "Id": "20",
+          "ProductId": "2002",
+          "Name": "Lemon Poppy Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "18",
+          "ProductId": "1011",
+          "Name": "WF Griddled Shortbread",
+          "ExcludedId": "1001"
+        }
+      ],
+      "FName": [
+        {
+          "Id": "10",
+          "ProductId": "1001",
+          "Name": "Pumpkin WelshCakes"
+        },
+        {
+          "Id": "13",
+          "ProductId": "2003",
+          "Name": "Two ChocDip Shortbread"
+        },
+        {
+          "Id": "20",
+          "ProductId": "2002",
+          "Name": "Pumpkin Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "10",
+          "ProductId": "1004",
+          "Name": "Patriot"
+        }
+      ]
+    },
+    "ExtraChoice": {
+      "ExtraChoiceName": [
+        {
+          "Id": "1",
+          "ProductId": "1001",
+          "Name": "Devon Cream"
+        },
+        {
+          "Id": "2",
+          "ProductId": "1001",
+          "Name": "Lemon Curd"
+        },
+        {
+          "Id": "3",
+          "ProductId": "1001",
+          "Name": "Black Currant Jam"
+        },
+        {
+          "Id": "4",
+          "ProductId": "1001",
+          "Name": "Old English Marmalade"
+        },
+        {
+          "Id": "5",
+          "ProductId": "1001",
+          "Name": "Prince of Wales Tea"
+        },
+        {
+          "Id": "7",
+          "ProductId": "1002",
+          "Name": "Welsh Brew Tea"
+        }
+      ],
+      "EName": [
+        {
+          "Id": "4",
+          "ProductId": "1001",
+          "Name": "Ginger Preserves"
+        },
+        {
+          "Id": "6",
+          "ProductId": "1001",
+          "Name": "English Afternoon Tea"
+        }
+      ]
+    }
+  }
+}

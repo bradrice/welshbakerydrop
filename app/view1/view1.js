@@ -32,7 +32,8 @@ view1.config(function ($httpProvider) {
 view1.controller('View1Ctrl', function($scope, $http) {
 
     $http.get('view1/blogs.xml').success(function (data) {
-        $scope.blogs = data.blogs.blog;
+        $scope.blogs = data;
+        console.log($scope.blogs);
     });
 
       $scope.models = {
