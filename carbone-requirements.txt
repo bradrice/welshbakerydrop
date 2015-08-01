@@ -1,0 +1,19 @@
+Box Filling Interface
+Users pick a box and then add items to it.
+ A box can contain from zero to any number of “yummies”.
+A box can contain from zero to any number of “extras”.
+Box capacity of yummies and extras is to be configurable by us.
+Box price to be configurable by us.
+List of available yummies that may be added to a box is to be configurable by us.
+When adding yummies and/or extras to a box:
+the interface must allow users to drag a drop the yummies or extras to the box in any order
+The box contents must update accordingly.
+If the customer drags 2 or more of the same item to a box, the item must only be listed once with a qty indicator following the entry (i.e. Blueberry WelshCakes [2] )
+The amount of remaining yummies or extras that the user must add to the box must be displayed clearly as with current interface.
+A box may only be added to the cart when it is filled to capacity.
+A “start over” button should allow users to reset the selected box to empty.
+The page should be able to be loaded with a passed parameter that defines the default box selected. In this way, we can first show the users a page with a list of the boxes that they may select from. When they click a box type, they are then directed to the box filling interface with their chosen box selected for them, however while within the box filling interface screen, users should also be able to change their box selection to a different box with a different capacity. When so doing, any given existing selections are cleared and the user essentially starts over with a new box selection.
+The box contents are to be defined in a Text Box Parameter of the box product in the same manner as the current interface works. In this way – the box contents are specified in a long string with quantities such as
+
+5 Packs + 2 Extras Box
+Your Option: Blueberry WelshCakes (3),Lemon Poppy WelshCakes (1),Currant WelshCakes (1),Devon Cream (1),Lemon Curd (1)

@@ -1,37 +1,64 @@
-<p>This is the partial for view 1.</p>
-
-<!-- The dnd-list directive allows to drop elements into it.
-     The dropped data will be added to the referenced list -->
-<div class="col-md-8">
-    <div class="row">
-        <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+<div class="container">
+    <div class="col-sm-2">
+        <div class="row">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">List {{listName}}</h3>
+                    <h3 class="panel-title">1. Pick a box</h3>
                 </div>
-                <div class="panel-body" ng-include="'view1/simple.html'"></div>
+                <div class="panel-body" ng-include="'view1/prodlist.html'"></div>
             </div>
         </div>
     </div>
 
-    <div view-source="simple"></div>
+    <!-- The dnd-list directive allows to drop elements into it.
+         The dropped data will be added to the referenced list -->
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">2. Add items by dragging to Fill your box</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-6 alpha">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Flavors</h3>
+                                </div>
 
-</div>
+                                <div class="panel-body">
+                                        <div ng-include="'view1/listA.html'"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 omega">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Box (max {{my.num}})</h3>
+                                </div>
 
-<div class="col-md-4">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Generated Model</h3>
+                                <div class="panel-body" ng-class="{box: boxfull}">
+                                    <div ng-include="'view1/listB.html'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <pre class="code">{{modelAsJson}}</pre>
+    </div>
+
+
+    <div class="col-sm-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Generated Model</h3>
+            </div>
+            <div class="panel-body">
+                <pre class="code">{{modelAsJson}}</pre>
+            </div>
         </div>
     </div>
 </div>
-<p>{{blogs}}</p>
-<ul>
-    <li ng-repeat="blog in blogs">
-        {{blog._name}} - {{ blog._id }}
-    </li>
-</ul>
-<p>{{models.lists.A}}</p>
+
+

@@ -32,3 +32,15 @@
 ul[dnd-list], ul[dnd-list] > li {
   position: relative;
 }
+
+div.box {
+  background-color: #b7a145;
+}
+
+div.box li.list-group-item {
+  opacity: .8;
+}
+
+li.selected {
+  background-color: #dff0d8;
+}
