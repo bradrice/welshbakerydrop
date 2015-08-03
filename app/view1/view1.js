@@ -18,7 +18,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     $scope.models = {
         selected: null,
-        lists: {"A": [], "B": [], "prodList": [], "extraProds": []}
+        lists: {"A": [], "B": [], "prodList": [], "extraProds": [], 'hashmap': {}}
     };
 
 
@@ -59,6 +59,34 @@ view1.controller('View1Ctrl', function($scope, $http) {
         if (index > -1) {
             $scope.models.lists.B.splice(index, 1);
         }
+    }
+
+    $scope.addItem = function(index, item){
+        console.log(item);
+            if($scope.models.lists.B.length < $scope.my.totalval){
+                if(item.ProductId in $scope.models.lists.hashmap){
+                    console.log('true - item already exists');
+                    $scope.models.lists.hashmap[item.ProductId]['quantity'] = $scope.models.lists.hashmap[item.ProductId]['quantity'] + 1;
+                }
+                else {
+                    console.log('false - need to create item in hashmap');
+                    $scope.models.lists.hashmap[item.ProductId] = {};
+                    $scope.models.lists.hashmap[item.ProductId]['name'] = item.Name;
+                    $scope.models.lists.hashmap[item.ProductId]['quantity'] = 1;
+                    var bitem = $scope.models.lists.hashmap[item.ProductId];
+                    console.log(bitem);
+                    $scope.models.lists.B.push(bitem);
+                }
+                for(var i=0; i < $scope.models.lists.B.length; i++){
+                    $scope.my.totalval = $scope.my.totalval + $scope.models.lists.B[i]['quantity'];
+                }
+                console.log($scope.my.totalval);
+                console.log($scope.models.lists.hashmap);
+
+
+                $scope.setboxfull();
+            }
+
     }
 
     $scope.prod = {'price': 0};

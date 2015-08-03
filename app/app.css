@@ -48,3 +48,8 @@ li.selected {
 .express {
   color: #d2322d;
 }
+
+.flavors {
+  max-height: 400px;
+  overflow: scroll;
+}
