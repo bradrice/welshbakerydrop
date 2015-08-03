@@ -39,20 +39,20 @@ view1.controller('View1Ctrl', function($scope, $http) {
     });
 
 
-    $scope.my = {'num': 0};
+    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0};
     $scope.boxfull = false;
 
 
     $scope.setboxfull = function(){
-        console.log($scope.models.lists.B.length)
-        if ($scope.models.lists.B.length < $scope.my.num) {
-            $scope.boxfull = false;
+        $scope.my.totalval = $scope.my.num + $scope.my.num2;
+        if ($scope.models.lists.B.length < $scope.my.totalval && $scope.my.totalval != 0) {
+            return $scope.boxfull = false;
         }
         else {
-            $scope.boxfull = true;
-            alert('You have filled the box. Either select a larger box, or remove an element.');
+            return $scope.boxfull = true;
+            //alert('You have filled the box. Either select a larger box, or remove an element.');
         }
-        console.log($scope.boxfull);
+        //console.log($scope.boxfull);
     }
 
     $scope.removeItem = function(index, item){
@@ -61,8 +61,12 @@ view1.controller('View1Ctrl', function($scope, $http) {
         }
     }
 
-    $scope.dropCallback = function(event, index, item){
-        console.log(item);
+    $scope.prod = {'price': 0};
+    $scope.showprice = false;
+    $scope.setPrice = function(price){
+        console.log(price);
+        $scope.showprice = true;
+        $scope.prod.price = price;
     }
 
 

@@ -34,7 +34,7 @@ ul[dnd-list], ul[dnd-list] > li {
 }
 
 div.box {
-  background-color: #b7a145;
+  background-color: #d4c78e;
 }
 
 div.box li.list-group-item {
@@ -43,4 +43,8 @@ div.box li.list-group-item {
 
 li.selected {
   background-color: #dff0d8;
+}
+
+.express {
+  color: #d2322d;
 }

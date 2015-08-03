@@ -1,6 +1,12 @@
 <div class="radio" ng-repeat="item in models.lists.prodList">
     <label>
-        <input type="radio" name="quantity" ng-model="my.num" ng-change="setboxfull()" id="cat-{{item.CatalogId}}" ng-value="{{item.Quantity}} + {{item.ExtraQuantity}}">
+        <input type="radio" name="quantity" ng-model="my.num" ng-change="setboxfull(); setPrice(item.Price);" id="cat-{{item.CatalogId}}" ng-value="{{item.Quantity}}">
        {{ item.Name }}
+    </label>
+</div>
+<div class="radio" ng-repeat="item in models.lists.extraProds">
+    <label>
+        <input type="radio" name="quantity" ng-model="my.num2" ng-change="setboxfull(); setPrice(item.Price);" id="cat-{{item.CatalogId}}" ng-value="{{item.Quantity}} + {{item.ExtraQuantity}}">
+        {{ item.Name }}
     </label>
 </div>

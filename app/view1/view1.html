@@ -5,7 +5,14 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">1. Pick a box</h3>
                 </div>
-                <div class="panel-body" ng-include="'view1/prodlist.html'"></div>
+                <div class="panel-body" ng-include="'view1/prodList.html'"></div>
+            </div>
+            <div class="panel panel-default" ng-show="showprice">
+                <div class="panel-body">
+                    <p>This box price is:</p>
+                <h4>{{prod.price | currency}}</h4>
+                <p class="express">All boxes ship for free!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -17,7 +24,7 @@
             <div class="col-sm-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">2. Add items by dragging to Fill your box</h3>
+                        <h3 class="panel-title">2. Add items by dragging to fill your Box</h3>
                     </div>
                     <div class="panel-body">
                         <div class="col-sm-6 alpha">
@@ -34,7 +41,7 @@
                         <div class="col-sm-6 omega">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Box (max {{my.num}})</h3>
+                                    <h3 class="panel-title">Box (max {{my.num + my.num2}})</h3>
                                 </div>
 
                                 <div class="panel-body" ng-class="{box: boxfull}">
@@ -42,6 +49,7 @@
                                     <button class="btn btn-primary" ng-show="boxfull">Add to cart</button>
                                 </div>
                             </div>
+                            <p ng-show="boxfull">You have filled this box. Either add it to your cart or remove items if you would like to change them.</p>
                         </div>
                     </div>
                 </div>
