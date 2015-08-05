@@ -1,6 +1,6 @@
 <!-- The dnd-list directive allows to drop elements into it.
      The dropped data will be added to the referenced list -->
-<ul dnd-list="models.lists.B" class="list-group" dnd-disable-if="boxfull || my.totalval == 0" style="min-height: 80px; padding: 20px 0;">
+<ul dnd-list="models.lists.B" class="list-group" style="min-height: 80px; padding: 20px 0;">
     <!-- The dnd-draggable directive makes an element draggable and will
          transfer the object that was assigned to it. If an element was
          dragged away, you have to remove it from the original list
@@ -8,7 +8,7 @@
     <li ng-repeat="(id, item) in models.lists.B"
         class="list-group-item"
             >
-        {{item.name}}
+        {{item.name}} ({{item.quantity}})
         <span class="glyphicon glyphicon-remove" style="float: right;" ng-click="removeItem($index, item); setboxfull();"></span>
     </li>
 </ul>

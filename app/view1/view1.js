@@ -39,52 +39,63 @@ view1.controller('View1Ctrl', function($scope, $http) {
     });
 
 
-    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0};
+    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0};
     $scope.boxfull = false;
+
+    $scope.setTotalAllowed = function(){
+        console.log($scope.my.num);
+        $scope.my.totalAllowed = $scope.my.num;
+    }
 
 
     $scope.setboxfull = function(){
-        $scope.my.totalval = $scope.my.num + $scope.my.num2;
-        if ($scope.models.lists.B.length < $scope.my.totalval && $scope.my.totalval != 0) {
+        //$scope.my.totalval = $scope.my.num + $scope.my.num2;
+        $scope.my.totalval = 0;
+        for(var i=0; i < $scope.models.lists.B.length; i++){
+            $scope.my.totalval = $scope.my.totalval + $scope.models.lists.B[i]['quantity'];
+        }
+        if ($scope.my.totalval < $scope.my.totalAllowed) {
+            console.log("My total: " + $scope.my.totalval);
             return $scope.boxfull = false;
         }
         else {
             return $scope.boxfull = true;
-            //alert('You have filled the box. Either select a larger box, or remove an element.');
+            alert('You have filled the box. Either select a larger box, or remove an element.');
         }
         //console.log($scope.boxfull);
     }
 
     $scope.removeItem = function(index, item){
+        console.log(item);
         if (index > -1) {
             $scope.models.lists.B.splice(index, 1);
+            delete $scope.models.lists.hashmap[item.id];
+            $scope.setboxfull();
         }
     }
 
     $scope.addItem = function(index, item){
-        console.log(item);
-            if($scope.models.lists.B.length < $scope.my.totalval){
-                if(item.ProductId in $scope.models.lists.hashmap){
-                    console.log('true - item already exists');
-                    $scope.models.lists.hashmap[item.ProductId]['quantity'] = $scope.models.lists.hashmap[item.ProductId]['quantity'] + 1;
+        console.log($scope.models.lists.hashmap);
+            if($scope.my.totalval < $scope.my.totalAllowed){
+                if(item.Id in $scope.models.lists.hashmap){
+                    console.log('true - ' + item.Id + ' item already exists');
+                    $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + 1;
                 }
                 else {
                     console.log('false - need to create item in hashmap');
-                    $scope.models.lists.hashmap[item.ProductId] = {};
-                    $scope.models.lists.hashmap[item.ProductId]['name'] = item.Name;
-                    $scope.models.lists.hashmap[item.ProductId]['quantity'] = 1;
-                    var bitem = $scope.models.lists.hashmap[item.ProductId];
+                    $scope.models.lists.hashmap[item.Id] = {};
+                    $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
+                    $scope.models.lists.hashmap[item.Id]['quantity'] = 1;
+                    $scope.models.lists.hashmap[item.Id]['id'] = item.Id;
+                    var bitem = $scope.models.lists.hashmap[item.Id];
                     console.log(bitem);
                     $scope.models.lists.B.push(bitem);
                 }
-                for(var i=0; i < $scope.models.lists.B.length; i++){
-                    $scope.my.totalval = $scope.my.totalval + $scope.models.lists.B[i]['quantity'];
-                }
-                console.log($scope.my.totalval);
-                console.log($scope.models.lists.hashmap);
-
 
                 $scope.setboxfull();
+            }
+        else {
+                alert('Box full');
             }
 
     }
