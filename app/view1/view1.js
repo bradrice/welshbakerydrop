@@ -130,12 +130,14 @@ view1.controller('View1Ctrl', function($scope, $http) {
     }
 
 
+
       // Generate initial selectQty model
       for (var i = 1; i <= 36; ++i) {
           //console.log($scope.flavors);
         $scope.models.lists.selectQty.push(i);
         //$scope.models.lists.B.push({label: "Item B" + i});
       }
+
 
       // Model to JSON for demo purpose
       $scope.$watch('models.lists.B', function(model) {
@@ -144,5 +146,6 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
         //console.log($scope.models.prodList.Quantity);
 
-
 });
+
+
