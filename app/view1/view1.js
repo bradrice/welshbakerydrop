@@ -115,6 +115,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
 
 
+
       //// Generate initial model
     //  for (var i = 0; i <= 3; ++i) {
     //      //console.log($scope.flavors);
@@ -133,8 +134,25 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
 });
 
-view1.directive('bsPopover', function() {
-    return function(scope, element, attrs) {
-        element.find("a[rel=popover]").popover({ placement: 'bottom', html: 'true'});
-    };
+angular.module('myApp.view1').directive('popover', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            $timeout(function() {
+                //console.log('adding listener');
+                element.find("a[rel=popover]").popover({placement: 'top', html: 'true'});
+            });
+        }
+    }
 });
+
+angular.module('myApp.view1').directive('stuff', function(){
+    return {
+        restrict: "A",
+        controller: function($scope){
+            console.log('stuff');
+
+        }
+    }
+});
+
