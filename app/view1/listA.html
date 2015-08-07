@@ -8,6 +8,16 @@
     <li ng-repeat="(id, item) in models.lists.A"
         class="list-group-item">
         {{item.Name}}
-        <span class="glyphicon glyphicon-plus" style="float: right;" ng-click="addItem($index, item);"></span>
+        <span style="float: right;">
+        <span class="glyphicon glyphicon-menu-up" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"></span>
+
+        <span class="glyphicon glyphicon-plus" ng-click="addItem($index, item);"></span>
+            </span>
     </li>
 </ul>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+

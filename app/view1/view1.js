@@ -100,6 +100,10 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     }
 
+    $scope.upQuantity = function(){
+        console.log("upped");
+    }
+
     $scope.prod = {'price': 0};
     $scope.showprice = false;
     $scope.setPrice = function(price){
