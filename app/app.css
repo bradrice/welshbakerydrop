@@ -53,3 +53,6 @@ li.selected {
   max-height: 400px;
   overflow: scroll;
 }
+.quantview {
+  float: right;
+}
