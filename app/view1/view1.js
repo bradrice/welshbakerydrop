@@ -20,6 +20,8 @@ view1.controller('View1Ctrl', function($scope, $http) {
         selected: null,
         lists: {"A": [], "B": [], "prodList": [], "extraProds": [], 'hashmap': {}}
     };
+    $scope.ctrlQty = '1';
+    $scope.ctrlMax = '6';
 
 
     $http.get('data/product.json').success(function (data) {
@@ -39,7 +41,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
     });
 
 
-    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0};
+    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'quant': 0};
     $scope.boxfull = false;
 
     $scope.setTotalAllowed = function(){
@@ -116,6 +118,8 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
 
 
+
+
       //// Generate initial model
     //  for (var i = 0; i <= 3; ++i) {
     //      //console.log($scope.flavors);
@@ -140,7 +144,24 @@ angular.module('myApp.view1').directive('popover', function($timeout) {
         link: function (scope, element, attrs) {
             $timeout(function() {
                 //console.log('adding listener');
-                element.find("a[rel=popover]").popover({placement: 'top', html: 'true'});
+                var el = element.find("a[rel=popover]").popover({placement: 'top', html: 'true'});
+
+            });
+        }
+    }
+});
+
+angular.module('myApp.view1').directive('popel', function($timeout, $log){
+    return {
+        restrict: 'E',
+        templateUrl: 'view1/popover.html',
+        scope: {
+            qty: "=",
+            max: "="
+        },
+       link: function(scope, element, attrs) {
+            $timeout(function() {
+                var el = element.find("a[rel=popover]").popover({placement: 'top', html: 'true'});
             });
         }
     }

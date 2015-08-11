@@ -1,0 +1,11 @@
+<!--<select>-->
+    <!--<option ng-repeat="i in ">{{i}}</option>-->
+<!--</select>-->
+
+<span style="float: right;">
+        <a href="" class="btn btn-default pop" data-container="body" data-toggle="popover" data-html="true" rel="popover"
+           data-content="<label for='quantity{{$index}}'>Quantity</label><span class='quantview'>{{qty}} - {{max}}</span>
+<input type='range' id='quantity{{$index}}' min='0' ng-model='qty' max='max' step='1' myattr='{{qty}}'>"><span class="glyphicon glyphicon-menu-up" ></span></a>
+
+        <span class="glyphicon glyphicon-plus" ng-click="addItem($index, item, qty);"></span>
+</span>
