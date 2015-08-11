@@ -22,6 +22,11 @@ view1.controller('View1Ctrl', function($scope, $http) {
     };
     $scope.ctrlQty = '1';
     $scope.ctrlMax = '6';
+    $scope.dynamicPopover = {
+        content: 'Hello, World!',
+        templateUrl: 'view1/popoverTemplate.html',
+        title: 'Title'
+    };
 
 
     $http.get('data/product.json').success(function (data) {
@@ -157,7 +162,7 @@ angular.module('myApp.view1').directive('popel', function($timeout, $log){
         templateUrl: 'view1/popover.html',
         scope: {
             qty: "=",
-            max: "="
+            max: "=",
         },
        link: function(scope, element, attrs) {
             $timeout(function() {
