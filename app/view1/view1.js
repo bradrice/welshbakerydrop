@@ -74,18 +74,19 @@ view1.controller('View1Ctrl', function($scope, $http) {
         }
     }
 
-    $scope.addItem = function(index, item){
+    $scope.addItem = function(index, item, model){
+        console.log(model);
         console.log($scope.models.lists.hashmap);
             if($scope.my.totalval < $scope.my.totalAllowed){
                 if(item.Id in $scope.models.lists.hashmap){
                     console.log('true - ' + item.Id + ' item already exists');
-                    $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + 1;
+                    $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
                 }
                 else {
                     console.log('false - need to create item in hashmap');
                     $scope.models.lists.hashmap[item.Id] = {};
                     $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
-                    $scope.models.lists.hashmap[item.Id]['quantity'] = 1;
+                    $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
                     $scope.models.lists.hashmap[item.Id]['id'] = item.Id;
                     var bitem = $scope.models.lists.hashmap[item.Id];
                     console.log(bitem);

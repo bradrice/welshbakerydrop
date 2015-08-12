@@ -8,6 +8,10 @@
     <li ng-repeat="(id, item) in models.lists.A"
         class="list-group-item">
         {{item.Name}}
-        <span class="glyphicon glyphicon-plus" style="float: right;" ng-click="addItem($index, item);"></span>
+        <select name="qty" ng-model="model.qty">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <span class="glyphicon glyphicon-plus" style="float: right;" ng-click="addItem($index, item, model);"></span>
     </li>
 </ul>
