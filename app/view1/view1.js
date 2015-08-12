@@ -96,7 +96,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
                 $scope.setboxfull();
             }
         else {
-                alert('Box full');
+                $('#fullModal').modal();
             }
 
     }
