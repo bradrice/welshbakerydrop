@@ -53,3 +53,18 @@ li.selected {
   max-height: 400px;
   overflow: scroll;
 }
+
+li.ctrlItem {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+li.ctrlItem>span.btn-group {
+  align-self: flex-start;
+}
+
+span.addedItem {
+  algin-self: flex-start;
+  padding: 6px;
+  max-width: 65%;
+}
