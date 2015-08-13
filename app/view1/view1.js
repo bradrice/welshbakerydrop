@@ -117,9 +117,12 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     }
 
-    $scope.upQuantity = function(){
-        console.log("upped");
+    $scope.emptyBox = function(){
+        $scope.models.lists.B = [];
+        $scope.models.lists.hashmap = {};
+        $scope.setboxfull();
     }
+
 
     $scope.prod = {'price': 0};
     $scope.showprice = false;

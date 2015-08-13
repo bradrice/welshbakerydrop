@@ -5,3 +5,6 @@ lib/
 tmp
 .DS_Store
 .idea
+
+# Sass cache
+.sass-cache/

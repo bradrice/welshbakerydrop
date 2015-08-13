@@ -1,0 +1,90 @@
+/* app css stylesheet */
+/* line 3, ../scss/app.scss */
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+/* line 10, ../scss/app.scss */
+.menu:before {
+  content: "[";
+}
+
+/* line 14, ../scss/app.scss */
+.menu:after {
+  content: "]";
+}
+
+/* line 18, ../scss/app.scss */
+.menu > li {
+  display: inline;
+}
+
+/* line 22, ../scss/app.scss */
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+/* line 27, ../scss/app.scss */
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/* line 32, ../scss/app.scss */
+ul[dnd-list], ul[dnd-list] > li {
+  position: relative;
+}
+
+/* line 36, ../scss/app.scss */
+div.box {
+  background-color: #d4c78e;
+}
+
+/* line 40, ../scss/app.scss */
+div.box li.list-group-item {
+  opacity: .8;
+}
+
+/* line 44, ../scss/app.scss */
+li.selected {
+  background-color: #dff0d8;
+}
+
+/* line 48, ../scss/app.scss */
+.express {
+  color: #d2322d;
+}
+
+/* line 52, ../scss/app.scss */
+.flavors {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+/* line 57, ../scss/app.scss */
+li.ctrlItem {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 62, ../scss/app.scss */
+li.ctrlItem > span.btn-group {
+  align-self: flex-start;
+}
+
+/* line 66, ../scss/app.scss */
+span.addedItem {
+  algin-self: flex-start;
+  padding: 6px;
+  max-width: 65%;
+}
+
+/* line 72, ../scss/app.scss */
+#startover {
+  margin-left: 1.5em;
+}
