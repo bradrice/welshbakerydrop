@@ -43,6 +43,8 @@ view1.controller('View1Ctrl', function($scope, $http) {
     $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'totalLeft': 0};
     $scope.boxfull = false;
     $scope.showExtras = false;
+    $scope.model = {};
+    $scope.model.qty = 1;
 
     $scope.setTotalAllowed = function(){
         console.log($scope.my.num);
@@ -76,6 +78,12 @@ view1.controller('View1Ctrl', function($scope, $http) {
         }
 
         //console.log($scope.boxfull);
+    }
+
+    $scope.setQty = function(e, val){
+        console.log(val);
+        e.preventDefault();
+        $scope.model.qty = val;
     }
 
     $scope.removeItem = function(index, item){
@@ -112,7 +120,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
                 $scope.models.lists.hashmap[item.Id] = {};
                 $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
                 $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
-                $scope.models.lists.hashmap[item.Id]['id'] = 'F' + item.Id;
+                $scope.models.lists.hashmap[item.Id]['id'] = + item.Id;
                 $scope.models.lists.hashmap[item.Id]['category'] = 'flavorPack';
                 var bitem = $scope.models.lists.hashmap[item.Id];
                 console.log(bitem);
