@@ -78,13 +78,14 @@ li.ctrlItem > span.btn-group {
 }
 
 /* line 66, ../scss/app.scss */
-span.addedItem {
+div.addedItem {
   algin-self: flex-start;
   padding: 6px;
   max-width: 65%;
+  display: inline-block;
 }
 
-/* line 72, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
 #startover {
   margin-left: 1.5em;
 }

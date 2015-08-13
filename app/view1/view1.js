@@ -18,12 +18,13 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     $scope.models = {
         selected: null,
-        lists: {"A": [], "B": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
+        lists: {"A": [], "B": [], "C": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
     };
 
 
     $http.get('data/product.json').success(function (data) {
         $scope.models.lists.A = data.Products.Flavor.FlavorName;
+        $scope.models.lists.C = data.Products.ExtraChoice.ExtraChoiceName;
         var prods = data.Products.Product.ProductName;
         for (var i = 0; i < prods.length; i++) {
             //console.log(prods[i]);
@@ -41,10 +42,18 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'totalLeft': 0};
     $scope.boxfull = false;
+    $scope.showExtras = false;
 
     $scope.setTotalAllowed = function(){
         console.log($scope.my.num);
         $scope.my.totalAllowed = $scope.my.num;
+        $scope.setboxfull();
+    }
+
+    $scope.setExtraAllowed = function(packQty, extQty){
+        console.log(packQty + " : " + extQty);
+        $scope.showExtras = true;
+        $scope.my.totalAllowed = $scope.my.num2;
         $scope.setboxfull();
     }
 
@@ -103,7 +112,8 @@ view1.controller('View1Ctrl', function($scope, $http) {
                 $scope.models.lists.hashmap[item.Id] = {};
                 $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
                 $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
-                $scope.models.lists.hashmap[item.Id]['id'] = item.Id;
+                $scope.models.lists.hashmap[item.Id]['id'] = 'F' + item.Id;
+                $scope.models.lists.hashmap[item.Id]['category'] = 'flavorPack';
                 var bitem = $scope.models.lists.hashmap[item.Id];
                 console.log(bitem);
                 $scope.models.lists.B.push(bitem);
@@ -114,6 +124,38 @@ view1.controller('View1Ctrl', function($scope, $http) {
         else {
                 $('#fullModal').modal();
             }
+
+    }
+
+    $scope.addExtItem = function(index, item, model){
+        console.log(model);
+        console.log("totalval: " + $scope.my.totalval);
+        console.log("total Allowed: " + $scope.my.totalAllowed);
+
+        //console.log($scope.models.lists.hashmap);
+        $scope.my.currentTotal = parseInt($scope.my.totalval) + parseInt(model.qty);
+        if($scope.my.totalAllowed >= $scope.my.currentTotal){
+            if(item.Id in $scope.models.lists.hashmap){
+                console.log('true - ' + item.Id + ' item already exists');
+                $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
+            }
+            else {
+                console.log('false - need to create item in hashmap');
+                $scope.models.lists.hashmap[item.Id] = {};
+                $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
+                $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
+                $scope.models.lists.hashmap[item.Id]['id'] = 'E' + item.Id;
+                $scope.models.lists.hashmap[item.Id]['category'] = 'Extra';
+                var bitem = $scope.models.lists.hashmap[item.Id];
+                console.log(bitem);
+                $scope.models.lists.B.push(bitem);
+            }
+
+            $scope.setboxfull();
+        }
+        else {
+            $('#fullModal').modal();
+        }
 
     }
 
