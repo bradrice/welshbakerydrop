@@ -101,6 +101,10 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     }
 
+    $scope.upQuantity = function(){
+        console.log("upped");
+    }
+
     $scope.prod = {'price': 0};
     $scope.showprice = false;
     $scope.setPrice = function(price){
@@ -108,6 +112,8 @@ view1.controller('View1Ctrl', function($scope, $http) {
         $scope.showprice = true;
         $scope.prod.price = price;
     }
+
+
 
 
       //// Generate initial model
@@ -126,4 +132,10 @@ view1.controller('View1Ctrl', function($scope, $http) {
         //console.log($scope.models.prodList.Quantity);
 
 
+});
+
+view1.directive('bsPopover', function() {
+    return function(scope, element, attrs) {
+        element.find("a[rel=popover]").popover({ placement: 'bottom', html: 'true'});
+    };
 });

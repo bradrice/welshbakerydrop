@@ -1,19 +1,18 @@
-<!-- The dnd-list directive allows to drop elements into it.
-     The dropped data will be added to the referenced list -->
-<ul dnd-list="models.lists.A" class="list-group flavors" style="min-height: 80px;">
-    <!-- The dnd-draggable directive makes an element draggable and will
-         transfer the object that was assigned to it. If an element was
-         dragged away, you have to remove it from the original list
-         yourself using the dnd-moved attribute -->
+<ul class="list-group flavors" style="min-height: 80px;">
     <li ng-repeat="(id, item) in models.lists.A"
         class="list-group-item">
         {{item.Name}}
-        <div style="display: inline-block; float: right;">
-        <select name="qty" ng-model="model.qty" style="margin-right: 6px;">
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
-        <span class="glyphicon glyphicon-plus" style="float: right;" ng-click="addItem($index, item, model);"></span>
-            </div>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <select name="qty" ng-model="model.qty" style="margin-right: 6px;" placeholder="Qty" class="form-control input-sm">
+                    <option value="" selected>Quantity</option>
+                    <option value="{{i}}" ng-repeat="i in models.lists.selectQty">{{i}}</option>
+                </select>
+            </span>
+            <span class="input-group-btn">
+                <span class="glyphicon glyphicon-plus btn btn-default" style="float: right;" ng-click="addItem($index, item, model);"></span>
+            </span>
+
+        </div>
     </li>
 </ul>
