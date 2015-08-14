@@ -51,10 +51,11 @@
                                     <div ng-include="'view1/listB.html'"></div>
                                     <button class="btn btn-primary" ng-show="boxfull">Add to cart</button>
                                 </div>
+                                <p style="margin: 6px;" ng-show="!boxfull && my.totalLeft != 0">You have {{ my.totalLeft}} items left to fill this box.</p>
                             </div>
                             <p ng-show="boxfull">You have filled this box. Either add it to your cart or remove items if you would like to change them.</p>
+                            <button id="startover" ng-show="my.totalAllowed > 0" class="btn btn-default" ng-click="emptyBox();">Start over</button>
                         </div>
-                        <button id="startover" ng-show="my.totalAllowed > 0" class="btn btn-primary" ng-click="emptyBox();">Start over</button>
                     </div>
                 </div>
             </div>

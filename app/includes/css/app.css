@@ -84,8 +84,3 @@ div.addedItem {
   max-width: 65%;
   display: inline-block;
 }
-
-/* line 73, ../scss/app.scss */
-#startover {
-  margin-left: 1.5em;
-}
