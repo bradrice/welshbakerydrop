@@ -21,6 +21,12 @@ view1.controller('View1Ctrl', function($scope, $http) {
         lists: {"A": [], "B": [], "C": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
     };
 
+    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'totalLeft': 0, 'extraAllowed': 0, 'flavorAllowed': 0, 'extraval': 0, 'flavorval': 0};
+    $scope.boxfull = false;
+    $scope.showExtras = false;
+    $scope.model = {};
+    $scope.model.qty = 1;
+
 
     $http.get('data/product.json').success(function (data) {
         $scope.models.lists.A = data.Products.Flavor.FlavorName;
@@ -40,11 +46,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
     });
 
 
-    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'totalLeft': 0};
-    $scope.boxfull = false;
-    $scope.showExtras = false;
-    $scope.model = {};
-    $scope.model.qty = 1;
+
 
     $scope.setTotalAllowed = function(){
         console.log($scope.my.num);
@@ -54,8 +56,10 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     $scope.setExtraAllowed = function(packQty, extQty){
         console.log(packQty + " : " + extQty);
+        $scope.my.extraAllowed = parseInt(extQty);
+        $scope.my.flavorAllowed = parseInt(packQty);
         $scope.showExtras = true;
-        $scope.my.totalAllowed = $scope.my.num2;
+        $scope.my.totalAllowed = parseInt(extQty) + parseInt(packQty);
         $scope.setboxfull();
     }
 
@@ -105,12 +109,12 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     $scope.addItem = function(index, item, model){
         console.log(model);
-        console.log("totalval: " + $scope.my.totalval);
-        console.log("total Allowed: " + $scope.my.totalAllowed);
+        console.log("flavorval: " + $scope.my.totalval);
+        console.log("flavor Allowed: " + $scope.my.flavorAllowed);
 
         //console.log($scope.models.lists.hashmap);
         $scope.my.currentTotal = parseInt($scope.my.totalval) + parseInt(model.qty);
-        if($scope.my.totalAllowed >= $scope.my.currentTotal){
+        if($scope.my.totalAllowed >= $scope.my.currentTotal && $scope.my.flavorAllowed >= $scope.my.flavorval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
                 $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
@@ -137,12 +141,12 @@ view1.controller('View1Ctrl', function($scope, $http) {
 
     $scope.addExtItem = function(index, item, model){
         console.log(model);
-        console.log("totalval: " + $scope.my.totalval);
-        console.log("total Allowed: " + $scope.my.totalAllowed);
+        console.log("extraval: " + $scope.my.extraval);
+        console.log("extra Allowed: " + $scope.my.extraAllowed);
 
         //console.log($scope.models.lists.hashmap);
-        $scope.my.currentTotal = parseInt($scope.my.totalval) + parseInt(model.qty);
-        if($scope.my.totalAllowed >= $scope.my.currentTotal){
+        $scope.my.extraval = parseInt($scope.my.extraval) + parseInt(model.qty);
+        if($scope.my.totalAllowed >= $scope.my.currentTotal && $scope.my.extraAllowed >= $scope.my.extraval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
                 $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
@@ -152,7 +156,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
                 $scope.models.lists.hashmap[item.Id] = {};
                 $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
                 $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
-                $scope.models.lists.hashmap[item.Id]['id'] = 'E' + item.Id;
+                $scope.models.lists.hashmap[item.Id]['id'] = item.Id;
                 $scope.models.lists.hashmap[item.Id]['category'] = 'Extra';
                 var bitem = $scope.models.lists.hashmap[item.Id];
                 console.log(bitem);
