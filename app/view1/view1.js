@@ -13,7 +13,7 @@ view1.config(function ($httpProvider) {
     $httpProvider.interceptors.push('xmlHttpInterceptor');
 });
 
-view1.controller('View1Ctrl', function($scope, $http) {
+view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
 
     $scope.models = {
@@ -67,13 +67,31 @@ view1.controller('View1Ctrl', function($scope, $http) {
     $scope.setboxfull = function(){
         //$scope.my.totalval = $scope.my.num + $scope.my.num2;
         $scope.my.totalval = 0;
-        for(var i=0; i < $scope.models.lists.B.length; i++){
-            $scope.my.totalval = parseInt($scope.my.totalval) + parseInt($scope.models.lists.B[i]['quantity']);
-        }
+        $scope.flavorPacks =  $filter('filter')($scope.models.lists.B, {'category': 'flavorPack'});
+        $scope.extraPacks =  $filter('filter')($scope.models.lists.B, {'category': 'Extra'});
+        //console.log($scope.flavorPacks);
+        //for(var i=0; i < $scope.models.lists.B.length; i++){
+        //    $scope.my.totalval = parseInt($scope.my.totalval) + parseInt($scope.models.lists.B[i]['quantity']);
+        //}
         $scope.my.totalLeft = parseInt($scope.my.totalAllowed) - parseInt($scope.my.totalval);
-        console.log("Total left: " + $scope.my.totalLeft);
-        if ($scope.my.totalval < $scope.my.totalAllowed) {
-            console.log("My total: " + $scope.my.totalval);
+
+        if($scope.flavorPacks != undefined && $scope.flavorPacks.length > 0){
+            var tempval = 0;
+            for(var i=0; i < $scope.flavorPacks.length; i++) {
+                tempval += parseInt($scope.flavorPacks[i]['quantity']);
+            }
+            $scope.my.flavorval = tempval;
+        }
+        if($scope.extraPacks != undefined && $scope.extraPacks.length > 0){
+            var tempval = 0;
+            for(var i=0; i < $scope.extraPacks.length; i++) {
+                tempval += parseInt($scope.extraPacks[i]['quantity']);
+            }
+            $scope.my.extraval = tempval;
+        }
+        console.log("Extra Allowed: " + $scope.my.extraAllowed + " Extra:  " + $scope.my.extraval + " Flavor allowed " + $scope.my.flavorAllowed + " Flavor: " + $scope.my.flavorval);
+        if ($scope.my.extraval < $scope.my.extraAllowed && $scope.my.flavorval < $scope.my.flavorAllowed) {
+            console.log('box not full');
             return $scope.boxfull = false;
         }
         else {
@@ -108,13 +126,10 @@ view1.controller('View1Ctrl', function($scope, $http) {
     }
 
     $scope.addItem = function(index, item, model){
-        console.log(model);
-        console.log("flavorval: " + $scope.my.totalval);
-        console.log("flavor Allowed: " + $scope.my.flavorAllowed);
+        console.log("flavor Allowed: " + $scope.my.flavorAllowed + " flavor: " + $scope.my.flavorval);
 
         //console.log($scope.models.lists.hashmap);
-        $scope.my.currentTotal = parseInt($scope.my.totalval) + parseInt(model.qty);
-        if($scope.my.totalAllowed >= $scope.my.currentTotal && $scope.my.flavorAllowed >= $scope.my.flavorval){
+        if($scope.my.flavorAllowed >= $scope.my.flavorval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
                 $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
@@ -145,8 +160,7 @@ view1.controller('View1Ctrl', function($scope, $http) {
         console.log("extra Allowed: " + $scope.my.extraAllowed);
 
         //console.log($scope.models.lists.hashmap);
-        $scope.my.extraval = parseInt($scope.my.extraval) + parseInt(model.qty);
-        if($scope.my.totalAllowed >= $scope.my.currentTotal && $scope.my.extraAllowed >= $scope.my.extraval){
+        if($scope.my.extraAllowed >= $scope.my.extraval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
                 $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
