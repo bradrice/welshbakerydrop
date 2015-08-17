@@ -48,9 +48,9 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
 
 
-    $scope.setTotalAllowed = function(){
+    $scope.setFlavorAllowed = function(){
         console.log($scope.my.num);
-        $scope.my.totalAllowed = $scope.my.num;
+        $scope.my.flavorAllowed = $scope.my.num;
         $scope.setboxfull();
     }
 
@@ -59,7 +59,6 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
         $scope.my.extraAllowed = parseInt(extQty);
         $scope.my.flavorAllowed = parseInt(packQty);
         $scope.showExtras = true;
-        $scope.my.totalAllowed = parseInt(extQty) + parseInt(packQty);
         $scope.setboxfull();
     }
 
@@ -90,6 +89,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             $scope.my.extraval = tempval;
         }
         console.log("Extra Allowed: " + $scope.my.extraAllowed + " Extra:  " + $scope.my.extraval + " Flavor allowed " + $scope.my.flavorAllowed + " Flavor: " + $scope.my.flavorval);
+        console.log($scope.my.flavorval < $scope.my.flavorAllowed );
         if ($scope.my.extraval < $scope.my.extraAllowed && $scope.my.flavorval < $scope.my.flavorAllowed) {
             console.log('box not full');
             return $scope.boxfull = false;
@@ -129,7 +129,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
         console.log("flavor Allowed: " + $scope.my.flavorAllowed + " flavor: " + $scope.my.flavorval);
 
         //console.log($scope.models.lists.hashmap);
-        if($scope.my.flavorAllowed >= $scope.my.flavorval){
+        if($scope.my.flavorAllowed > $scope.my.flavorval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
                 $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
@@ -155,12 +155,10 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
     }
 
     $scope.addExtItem = function(index, item, model){
-        console.log(model);
-        console.log("extraval: " + $scope.my.extraval);
-        console.log("extra Allowed: " + $scope.my.extraAllowed);
+        console.log("extra Allowed: " + $scope.my.extraAllowed + " extra: " + $scope.my.extraval);
 
         //console.log($scope.models.lists.hashmap);
-        if($scope.my.extraAllowed >= $scope.my.extraval){
+        if($scope.my.extraAllowed > $scope.my.extraval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
                 $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
