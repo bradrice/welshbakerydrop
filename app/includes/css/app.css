@@ -84,3 +84,9 @@ div.addedItem {
   max-width: 65%;
   display: inline-block;
 }
+
+/* line 73, ../scss/app.scss */
+span.emph {
+  color: #d1250b;
+  font-weight: bold;
+}
