@@ -90,3 +90,8 @@ span.emph {
   color: #d1250b;
   font-weight: bold;
 }
+
+/* line 78, ../scss/app.scss */
+#customProduct {
+  min-height: 200px;
+}
