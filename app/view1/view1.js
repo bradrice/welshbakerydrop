@@ -21,7 +21,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
         lists: {"A": [], "B": [], "C": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
     };
 
-    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'totalLeft': 0, 'extraAllowed': 0, 'flavorAllowed': 0, 'extraval': 0, 'flavorval': 0};
+    $scope.my = {'num': 0, 'num2': 0, 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'flavorLeft': 0, 'extraAllowed': 0, 'flavorAllowed': 0, 'extraval': 0, 'flavorval': 0, 'extraLeft': 0};
     $scope.boxfull = false;
     $scope.showExtras = false;
     $scope.model = {};
@@ -62,17 +62,12 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
         $scope.setboxfull();
     }
 
-
+//gets called every time an item is added to a box to check if it is full
     $scope.setboxfull = function(){
-        //$scope.my.totalval = $scope.my.num + $scope.my.num2;
-        $scope.my.totalval = 0;
         $scope.flavorPacks =  $filter('filter')($scope.models.lists.B, {'category': 'flavorPack'});
         $scope.extraPacks =  $filter('filter')($scope.models.lists.B, {'category': 'Extra'});
-        //console.log($scope.flavorPacks);
-        //for(var i=0; i < $scope.models.lists.B.length; i++){
-        //    $scope.my.totalval = parseInt($scope.my.totalval) + parseInt($scope.models.lists.B[i]['quantity']);
-        //}
-        $scope.my.totalLeft = parseInt($scope.my.totalAllowed) - parseInt($scope.my.totalval);
+        $scope.my.flavorLeft = parseInt($scope.my.flavorAllowed) - parseInt($scope.my.flavorval);
+        $scope.my.extraLeft = parseInt($scope.my.extraAllowed) - parseInt($scope.my.extraval);
 
         if($scope.flavorPacks != undefined && $scope.flavorPacks.length > 0){
             var tempval = 0;
@@ -88,18 +83,13 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             }
             $scope.my.extraval = tempval;
         }
-        console.log("Extra Allowed: " + $scope.my.extraAllowed + " Extra:  " + $scope.my.extraval + " Flavor allowed " + $scope.my.flavorAllowed + " Flavor: " + $scope.my.flavorval);
-        console.log($scope.my.flavorval < $scope.my.flavorAllowed );
-        if ($scope.my.extraval < $scope.my.extraAllowed && $scope.my.flavorval < $scope.my.flavorAllowed) {
-            console.log('box not full');
-            return $scope.boxfull = false;
+        if ($scope.my.extraval == $scope.my.extraAllowed && $scope.my.flavorval == $scope.my.flavorAllowed) {
+            return $scope.boxfull = true;
         }
         else {
-            return $scope.boxfull = true;
-            $('#fullModal').modal();
+            return $scope.boxfull = false;
         }
 
-        //console.log($scope.boxfull);
     }
 
     $scope.setQty = function(e, val){
@@ -126,7 +116,6 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
     }
 
     $scope.addItem = function(index, item, model){
-        console.log("flavor Allowed: " + $scope.my.flavorAllowed + " flavor: " + $scope.my.flavorval);
 
         //console.log($scope.models.lists.hashmap);
         if($scope.my.flavorAllowed > $scope.my.flavorval){
@@ -149,15 +138,13 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             $scope.setboxfull();
         }
         else {
-                $('#fullModal').modal();
+                $('#flavorfullModal').modal();
             }
 
     }
 
     $scope.addExtItem = function(index, item, model){
-        console.log("extra Allowed: " + $scope.my.extraAllowed + " extra: " + $scope.my.extraval);
 
-        //console.log($scope.models.lists.hashmap);
         if($scope.my.extraAllowed > $scope.my.extraval){
             if(item.Id in $scope.models.lists.hashmap){
                 console.log('true - ' + item.Id + ' item already exists');
@@ -178,14 +165,18 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             $scope.setboxfull();
         }
         else {
-            $('#fullModal').modal();
+            $('#extrafullModal').modal();
         }
 
     }
 
     $scope.emptyBox = function(){
+        $scope.my.flavorval = 0;
+        $scope.my.extraval = 0;
         $scope.models.lists.B = [];
         $scope.models.lists.hashmap = {};
+        $scope.flavorPacks = [];
+        $scope.extraPacks = [];
         $scope.setboxfull();
     }
 

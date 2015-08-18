@@ -24,7 +24,7 @@
             <div class="col-sm-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">2. Add items by dragging to fill your Box</h3>
+                        <h3 class="panel-title">2. Add items by clicking to fill your Box</h3>
                     </div>
                     <div class="panel-body">
                         <div class="col-sm-6 alpha">
@@ -44,14 +44,14 @@
                         <div class="col-sm-6 omega">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Box (size {{my.totalAllowed}}) <span ng-show="showExtras">Flavors: {{my.flavorAllowed}} and Extras: {{my.extraAllowed}} </span></h3>
+                                    <h3 class="panel-title">Amounts allowed Flavors: {{my.flavorAllowed}}<span ng-show="showExtras"> and Extras: {{my.extraAllowed}} </span></h3>
                                 </div>
 
                                 <div class="panel-body" ng-class="{box: boxfull}">
                                     <div ng-include="'view1/listB.html'"></div>
                                     <button class="btn btn-primary" ng-show="boxfull">Add to cart</button>
                                 </div>
-                                <p style="margin: 6px;" ng-show="!boxfull && my.totalLeft != 0">You have {{ my.totalLeft}} items left to fill this box.</p>
+                                <p style="margin: 6px;" ng-show="!boxfull">You have items {{my.flavorLeft}} flavors left to fill this box.</p>
                             </div>
                             <p ng-show="boxfull">You have filled this box. Either add it to your cart or remove items if you would like to change them.</p>
                             <button id="startover" ng-show="my.flavorAllowed > 0" class="btn btn-default" ng-click="emptyBox();">Start over</button>
@@ -85,6 +85,40 @@
             </div>
             <div class="modal-body">
                 <p>You have filled this box. You can either select a larger box or remove some items.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="flavorfullModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Box Full</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have filled this box with the amount of flavors allowed. You can either select a larger box or remove some items.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="extrafullModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Box Full</h4>
+            </div>
+            <div class="modal-body">
+                <p>You have filled this box with the amount of extras allowed. You can either select a larger box or remove some items.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
