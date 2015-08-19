@@ -6,7 +6,7 @@
 </div>
 <div class="radio" ng-repeat="item in models.lists.extraProds">
     <label>
-        <input type="radio" name="quantity" ng-model="my.num2" ng-change="setExtraAllowed(item.Quantity, item.ExtraQuantity); setPrice(item.Price);" id="cat-{{item.CatalogId}}" ng-value="{{item.ExtraQuantity}}">
+        <input type="radio" name="quantity" ng-model="my.num2" ng-change="setExtraAllowed(item.Quantity, item.ExtraQuantity); setPrice(item.Price);" id="cat-{{item.CatalogId}}" value="E{{$index}}">
         {{ item.Name }}
     </label>
 </div>

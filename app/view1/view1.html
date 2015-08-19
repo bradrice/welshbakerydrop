@@ -19,7 +19,7 @@
 
     <!-- The dnd-list directive allows to drop elements into it.
          The dropped data will be added to the referenced list -->
-    <div class="col-sm-8">
+    <div class="col-sm-10">
         <div class="row">
             <div class="col-sm-12">
                 <div class="panel panel-info">
@@ -49,9 +49,9 @@
 
                                 <div class="panel-body" ng-class="{box: boxfull}">
                                     <div ng-include="'view1/listB.html'"></div>
-                                    <button class="btn btn-primary" ng-show="boxfull">Add to cart</button>
+                                    <p ng-show="!boxfull && my.flavorLeft > 0">You have items <span class="emph">{{my.flavorLeft}}</span> flavors left to fill this box.</p><p ng-show="showExtras && !boxfull">You have <span class="emph">{{my.extraLeft}}</span> extras left to fill the box. </p>
+                                    <button class="btn btn-primary" ng-show="boxfull" ng-click="addToCart();">Add to cart</button>
                                 </div>
-                                <p style="margin: 6px;" ng-show="!boxfull">You have items {{my.flavorLeft}} flavors left to fill this box.</p>
                             </div>
                             <p ng-show="boxfull">You have filled this box. Either add it to your cart or remove items if you would like to change them.</p>
                             <button id="startover" ng-show="my.flavorAllowed > 0" class="btn btn-default" ng-click="emptyBox();">Start over</button>
@@ -63,7 +63,7 @@
     </div>
 
 
-    <div class="col-sm-2">
+    <div class="col-sm-4" style="display:none;">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Generated Model</h3>
@@ -119,6 +119,34 @@
             </div>
             <div class="modal-body">
                 <p>You have filled this box with the amount of extras allowed. You can either select a larger box or remove some items.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="formModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">What will be sent to the cart below</h4>
+            </div>
+            <div class="modal-body">
+                <div id="sendform">
+                    <form enctype="multipart/form-data" method="post" action="http://www.welshbaker.com/add_cart.asp" style="display: block" target="_self">
+                        <input type="hidden" name="item_id" value="{{prod.category}}"/>
+                        <input type="hidden" name="itemid" value="{{prod.id}}"/>
+                        <input type="hidden" name="category_id" value="[catid]"/>
+                        <input type="hidden" name="qty-0" value="1"/>
+                        <input type="hidden" name="std_price" value="10.00"/>
+                       <carttextarea></carttextarea>
+                        <input type="hidden" name="specialamount" value="{{prod.price}}"/>
+                    </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
