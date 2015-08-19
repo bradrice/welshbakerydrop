@@ -1,7 +1,9 @@
 <ul class="list-group flavors" style="min-height: 80px;">
-    <li ng-repeat="(id, item) in models.lists.A"
+    <li ng-repeat="(id, item) in models.lists.A" bs-popover
         class="list-group-item ctrlItem">
             {{item.Name}}
-                <span class="glyphicon glyphicon-plus btn btn-default btn-xs" style="float: right;" ng-click="addItem($index, item, model);"></span>
+        <div class="btn-group">
+            <span class="glyphicon glyphicon-picture btn btn-default btn-xs" id="img{{$index}}" data-container="body" data-toggle="popover" title="{{item.Name}}" data-original-title="{{item.Name}}" rel="popover" data-content="<img src='includes/images/tempbox.jpg' alt='image'/>"></span> <span class="glyphicon glyphicon-plus btn btn-default btn-xs" style="float: right;" ng-click="addItem($index, item, model);"></span>
+        </div>
     </li>
 </ul>

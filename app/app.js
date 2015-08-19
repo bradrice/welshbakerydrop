@@ -9,9 +9,3 @@ var app = angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
-
-app.run(function($rootScope, $templateCache) {
-    $rootScope.$on('$viewContentLoaded', function() {
-        $templateCache.removeAll();
-    });
-});

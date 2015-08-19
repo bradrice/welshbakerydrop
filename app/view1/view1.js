@@ -15,11 +15,6 @@ view1.config(function ($httpProvider) {
 
 view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
-    $scope.clearCache = function() {
-        $templateCache.removeAll();
-    }
-
-
     $scope.models = {
         selected: null,
         lists: {"A": [], "B": [], "C": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
@@ -123,6 +118,10 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             delete $scope.models.lists.hashmap[item.id];
             $scope.setboxfull();
         }
+    };
+
+    $scope.showImage = function(img) {
+
     }
 
     // function to decrement items in the right contianer
@@ -266,6 +265,12 @@ angular.module('myApp.view1').directive('carttextarea', function(){
             }, true);
         }
     }
+});
+
+angular.module('myApp.view1').directive('bsPopover', function() {
+    return function(scope, element, attrs) {
+        element.find("span[rel=popover]").popover({ placement: 'top', html: 'true'});
+    };
 });
 
 
