@@ -50,7 +50,7 @@ li.selected {
 }
 
 .flavors {
-  max-height: 400px;
+  max-height: 200px;
   overflow: scroll;
 }
 
@@ -58,6 +58,7 @@ li.ctrlItem {
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
+  padding: 6px 4px;
 }
 li.ctrlItem>span.btn-group {
   align-self: flex-start;
@@ -65,7 +66,7 @@ li.ctrlItem>span.btn-group {
 
 div.addedItem {
   algin-self: flex-start;
-  padding: 6px;
+  padding: 4px;
   max-width: 65%;
   display: inline-block;
 }
