@@ -30,7 +30,7 @@
                         <div class="col-sm-6 alpha">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Flavors</h3>
+                                    <h3 class="panel-title">Yummies</h3>
                                 </div>
 
                                 <div class="panel-body">
@@ -42,12 +42,12 @@
                         <div class="col-sm-6 omega">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Amounts allowed Flavors: {{my.flavorAllowed}}<span ng-show="showExtras"> and Extras: {{my.extraAllowed}} </span></h3>
+                                    <h3 class="panel-title">Amounts allowed - Yummies: {{my.flavorAllowed}}<span ng-show="showExtras">, Extras: {{my.extraAllowed}} </span></h3>
                                 </div>
 
                                 <div class="panel-body" ng-class="{box: boxfull}">
                                     <div ng-include="'view1/listB.html'"></div>
-                                    <p ng-show="!boxfull && my.flavorLeft > 0">You have items <span class="emph">{{my.flavorLeft}}</span> flavors left to fill this box.</p><p ng-show="showExtras && !boxfull">You have <span class="emph">{{my.extraLeft}}</span> extras left to fill the box. </p>
+                                    <p ng-show="!boxfull && my.flavorLeft > 0">You have <span class="emph">{{my.flavorLeft}}</span> yummies left to fill this box.</p><p ng-show="showExtras && !boxfull">You have <span class="emph">{{my.extraLeft}}</span> extras left to fill the box. </p>
                                     <button class="btn btn-primary" ng-show="boxfull" ng-click="addToCart();">Add to cart</button>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
 </div>
 
 
-<div class="modal fade" id="fullModal">
+<div class="modal fade" id="emptyModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -82,7 +82,7 @@
                 <h4 class="modal-title">Box Full</h4>
             </div>
             <div class="modal-body">
-                <p>You have filled this box. You can either select a larger box or remove some items.</p>
+                <p>You have not selected a box size. Please select the size of box before adding items.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -99,7 +99,7 @@
                 <h4 class="modal-title">Box Full</h4>
             </div>
             <div class="modal-body">
-                <p>You have filled this box with the amount of flavors allowed. You can either select a larger box or remove some items.</p>
+                <p>You have filled this box with the amount of yummies allowed. You can either select a larger box or remove some items.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

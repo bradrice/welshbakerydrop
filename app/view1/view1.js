@@ -15,6 +15,10 @@ view1.config(function ($httpProvider) {
 
 view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
+    $scope.clearCache = function() {
+        $templateCache.removeAll();
+    }
+
 
     $scope.models = {
         selected: null,
@@ -132,6 +136,10 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
     // this is to add flavor packs to the right side container
     $scope.addItem = function(index, item, model){
+        if($scope.my.flavorAllowed == 0){
+            $('#emptyModal').modal();
+            return;
+        }
 
         //console.log($scope.models.lists.hashmap);
         if($scope.my.flavorAllowed > $scope.my.flavorval){
@@ -161,6 +169,10 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
     // this is to add extra items to the right side
     $scope.addExtItem = function(index, item, model){
+        if($scope.my.extraAllowed == 0){
+            $('#emptyModal').modal();
+            return;
+        }
 
         if($scope.my.extraAllowed > $scope.my.extraval){
             if(item.Id in $scope.models.lists.hashmap){
