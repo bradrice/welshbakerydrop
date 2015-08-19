@@ -61,7 +61,7 @@ li.selected {
 
 /* line 52, ../scss/app.scss */
 .flavors {
-  max-height: 400px;
+  max-height: 200px;
   overflow: scroll;
 }
 
@@ -70,28 +70,29 @@ li.ctrlItem {
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
+  padding: 6px 4px;
 }
 
-/* line 62, ../scss/app.scss */
+/* line 63, ../scss/app.scss */
 li.ctrlItem > span.btn-group {
   align-self: flex-start;
 }
 
-/* line 66, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
 div.addedItem {
   algin-self: flex-start;
-  padding: 6px;
+  padding: 4px;
   max-width: 65%;
   display: inline-block;
 }
 
-/* line 73, ../scss/app.scss */
+/* line 74, ../scss/app.scss */
 span.emph {
   color: #d1250b;
   font-weight: bold;
 }
 
-/* line 78, ../scss/app.scss */
+/* line 79, ../scss/app.scss */
 #customProduct {
   min-height: 200px;
 }
