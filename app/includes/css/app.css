@@ -1,5 +1,5 @@
 /* app css stylesheet */
-/* line 3, ../scss/app.scss */
+/* line 4, ../scss/app.scss */
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -7,108 +7,125 @@
   padding: 0 0 0.5em;
 }
 
-/* line 10, ../scss/app.scss */
+/* line 11, ../scss/app.scss */
 .menu:before {
   content: "[";
 }
 
-/* line 14, ../scss/app.scss */
+/* line 15, ../scss/app.scss */
 .menu:after {
   content: "]";
 }
 
-/* line 18, ../scss/app.scss */
+/* line 19, ../scss/app.scss */
 .menu > li {
   display: inline;
 }
 
-/* line 22, ../scss/app.scss */
+/* line 23, ../scss/app.scss */
 .menu > li:before {
   content: "|";
   padding-right: 0.3em;
 }
 
-/* line 27, ../scss/app.scss */
+/* line 28, ../scss/app.scss */
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
 }
 
-/* line 32, ../scss/app.scss */
+/* line 33, ../scss/app.scss */
 ul[dnd-list], ul[dnd-list] > li {
   position: relative;
 }
 
-/* line 36, ../scss/app.scss */
+/* line 37, ../scss/app.scss */
 div.box {
   background-color: #d4c78e;
 }
 
-/* line 40, ../scss/app.scss */
+/* line 41, ../scss/app.scss */
 div.box li.list-group-item {
   opacity: .8;
 }
 
-/* line 44, ../scss/app.scss */
+/* line 45, ../scss/app.scss */
 li.selected {
   background-color: #dff0d8;
 }
 
-/* line 48, ../scss/app.scss */
+/* line 49, ../scss/app.scss */
 .express {
   color: #d2322d;
 }
 
-/* line 52, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 .flavors {
   max-height: 220px;
   overflow: scroll;
 }
 
-/* line 57, ../scss/app.scss */
+/* line 58, ../scss/app.scss */
 li.ctrlItem {
-  display: flex !important;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
   flex-direction: row;
-  justify-content: space-between;
+  -webkit-justify-content: "space-between";
+  justify-content: "space-between";
   padding: 6px;
 }
 
-/* line 63, ../scss/app.scss */
+/* line 64, ../scss/app.scss */
 li.ctrlItem > span.btn-group {
-  align-self: flex-start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
 }
 
-/* line 67, ../scss/app.scss */
+/* line 68, ../scss/app.scss */
 div.addedItem {
-  algin-self: flex-start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
   padding: 4px;
-  max-width: 65%;
+  min-width: 65%;
   display: inline-block;
 }
 
-/* line 74, ../scss/app.scss */
+/* line 75, ../scss/app.scss */
 span.emph {
   color: #d1250b;
   font-weight: bold;
 }
 
-/* line 79, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
 #customProduct {
   min-height: 200px;
 }
 
-/* line 83, ../scss/app.scss */
+/* line 84, ../scss/app.scss */
 p.list-label {
   font-style: italic;
   color: #d1250b;
 }
 
-/* line 88, ../scss/app.scss */
+/* line 89, ../scss/app.scss */
 .flav {
   background-color: #fff3e0;
 }
 
-/* line 92, ../scss/app.scss */
+/* line 93, ../scss/app.scss */
 .scone {
   background-color: #ffe0e0;
+}
+
+/* line 97, ../scss/app.scss */
+.pic {
+  margin-right: 6px;
+}
+
+/* line 101, ../scss/app.scss */
+div.inline {
+  display: inline;
+  -webkit-flex: 1 0;
+  flex: 1 0;
 }
