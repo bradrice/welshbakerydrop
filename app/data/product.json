@@ -204,42 +204,7 @@
           "ProductId": "1001",
           "Name": "Chocolate Chip WelshCakes"
         },
-        {
-          "Id": "12",
-          "ProductId": "2001",
-          "Name": "Blueberry Scones",
-          "ExcludedId": "1001,1002"
-        },
-        {
-          "Id": "20",
-          "ProductId": "2002",
-          "Name": "Cranberry Orange Scones",
-          "ExcludedId": "1001,1002"
-        },
-        {
-          "Id": "12",
-          "ProductId": "2001",
-          "Name": "Maple Pecan Scones",
-          "ExcludedId": "1001,1002"
-        },
-        {
-          "Id": "12",
-          "ProductId": "2001",
-          "Name": "Currant Scones",
-          "ExcludedId": "1001,1002"
-        },
-        {
-          "Id": "12",
-          "ProductId": "2001",
-          "Name": "Chocolate Chip Scones",
-          "ExcludedId": "1001,1002"
-        },
-        {
-          "Id": "15",
-          "ProductId": "1009A",
-          "Name": "Griddled Shortbread",
-          "ExcludedId": "1001"
-        },
+
         {
           "Id": "31",
           "ProductId": "1007",
@@ -311,6 +276,44 @@
           "Id": "10",
           "ProductId": "1004",
           "Name": "Patriot"
+        }
+      ],
+      "scones_shortbread": [
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Blueberry Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "20",
+          "ProductId": "2002",
+          "Name": "Cranberry Orange Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Maple Pecan Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Currant Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "12",
+          "ProductId": "2001",
+          "Name": "Chocolate Chip Scones",
+          "ExcludedId": "1001,1002"
+        },
+        {
+          "Id": "15",
+          "ProductId": "1009A",
+          "Name": "Griddled Shortbread",
+          "ExcludedId": "1001"
         }
       ]
     },

@@ -61,7 +61,7 @@ li.selected {
 
 /* line 52, ../scss/app.scss */
 .flavors {
-  max-height: 140px;
+  max-height: 220px;
   overflow: scroll;
 }
 
@@ -70,7 +70,7 @@ li.ctrlItem {
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
-  padding: 6px 4px;
+  padding: 6px;
 }
 
 /* line 63, ../scss/app.scss */
@@ -95,4 +95,20 @@ span.emph {
 /* line 79, ../scss/app.scss */
 #customProduct {
   min-height: 200px;
+}
+
+/* line 83, ../scss/app.scss */
+p.list-label {
+  font-style: italic;
+  color: #d1250b;
+}
+
+/* line 88, ../scss/app.scss */
+.flav {
+  background-color: #fff3e0;
+}
+
+/* line 92, ../scss/app.scss */
+.scone {
+  background-color: #ffe0e0;
 }

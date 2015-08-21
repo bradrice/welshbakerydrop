@@ -31,6 +31,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
     $http.get('data/product.json').success(function (data) {
         $scope.models.lists.A = data.Products.Flavor.FlavorName;
         $scope.models.lists.C = data.Products.ExtraChoice.ExtraChoiceName;
+        $scope.models.lists.D = data.Products.Flavor.scones_shortbread;
         var prods = data.Products.Product.ProductName;
         for (var i = 0; i < prods.length; i++) {
             //console.log(prods[i]);

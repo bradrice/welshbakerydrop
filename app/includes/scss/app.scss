@@ -50,7 +50,7 @@ li.selected {
 }
 
 .flavors {
-  max-height: 140px;
+  max-height: 220px;
   overflow: scroll;
 }
 
@@ -58,7 +58,7 @@ li.ctrlItem {
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
-  padding: 6px 4px;
+  padding: 6px;
 }
 li.ctrlItem>span.btn-group {
   align-self: flex-start;
@@ -78,5 +78,18 @@ span.emph {
 
 #customProduct {
   min-height: 200px;
+}
+
+p.list-label {
+  font-style: italic;
+  color: #d1250b;
+}
+
+.flav {
+  background-color: #fff3e0;
+}
+
+.scone {
+  background-color: #ffe0e0
 }
 
