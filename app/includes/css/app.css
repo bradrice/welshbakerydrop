@@ -61,7 +61,7 @@ li.selected {
 
 /* line 52, ../scss/app.scss */
 .flavors {
-  max-height: 200px;
+  max-height: 140px;
   overflow: scroll;
 }
 
