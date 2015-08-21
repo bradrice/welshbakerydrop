@@ -50,7 +50,7 @@ li.selected {
 }
 
 .flavors {
-  max-height: 400px;
+  max-height: 100px;
   overflow: scroll;
 }
 

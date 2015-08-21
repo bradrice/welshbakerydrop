@@ -269,7 +269,7 @@ angular.module('myApp.view1').directive('carttextarea', function(){
 
 angular.module('myApp.view1').directive('bsPopover', function() {
     return function(scope, element, attrs) {
-        element.find("span[rel=popover]").popover({ placement: 'top', html: 'true'});
+        element.find("span[rel=popover]").popover({ placement: 'top', html: 'true', trigger: 'hover'});
     };
 });
 
