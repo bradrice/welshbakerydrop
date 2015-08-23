@@ -87,11 +87,11 @@ p.list-label {
 }
 
 .flav {
-  background-color: #fff3e0;
+  background-color: #ffadad;
 }
 
 .scone {
-  background-color: #ffe0e0
+  background-color: #ffe0e0;
 }
 
 .pic {
@@ -101,5 +101,20 @@ p.list-label {
 div.inline {
   display: inline;
   @include flex(1 0);
+}
+
+.panel-info>.panel-heading {
+  color: #fff;
+  background-color: #333333;
+  border-color: #333333;
+}
+
+.panel-info, .panel-default {
+  border-color: #666666;
+}
+
+.list-group-item-info {
+  color: #fff;
+  background-color: #666666;
 }
 

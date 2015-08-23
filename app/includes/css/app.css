@@ -110,7 +110,7 @@ p.list-label {
 
 /* line 89, ../scss/app.scss */
 .flav {
-  background-color: #fff3e0;
+  background-color: #ffadad;
 }
 
 /* line 93, ../scss/app.scss */
@@ -128,4 +128,22 @@ div.inline {
   display: inline;
   -webkit-flex: 1 0;
   flex: 1 0;
+}
+
+/* line 106, ../scss/app.scss */
+.panel-info > .panel-heading {
+  color: #fff;
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* line 112, ../scss/app.scss */
+.panel-info, .panel-default {
+  border-color: #666666;
+}
+
+/* line 116, ../scss/app.scss */
+.list-group-item-info {
+  color: #fff;
+  background-color: #666666;
 }
