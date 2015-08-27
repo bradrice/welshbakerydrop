@@ -207,14 +207,6 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
     };
 
-    $scope.removeExtraItem = function(index, item){
-        //console.log(item);
-        if (index > -1) {
-            $scope.models.lists.B.splice(index, 1);
-            delete $scope.models.lists.hashmap[item.id];
-            $scope.setboxfull();
-        }
-    };
 
     $scope.emptyBox = function(){
         $scope.my.flavorval = 0;
