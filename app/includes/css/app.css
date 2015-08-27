@@ -41,7 +41,7 @@ ul[dnd-list], ul[dnd-list] > li {
 
 /* line 37, ../scss/app.scss */
 div.box {
-  background-color: #d1250b;
+  background-color: #84c687;
 }
 
 /* line 41, ../scss/app.scss */
@@ -110,12 +110,12 @@ p.list-label {
 
 /* line 89, ../scss/app.scss */
 .flav {
-  background-color: #ffadad;
+  background-color: #fff;
 }
 
 /* line 93, ../scss/app.scss */
 .scone {
-  background-color: #ffe0e0;
+  background-color: #fff;
 }
 
 /* line 97, ../scss/app.scss */

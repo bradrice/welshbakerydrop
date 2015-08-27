@@ -2,49 +2,60 @@
     <div class="row">
         <div class="col-sm-12">
             <h1>Admin</h1>
-            <form>
-                <div class="form-group">
-                    <label for="productid">Product Id</label>
-                    <input type="text" class="form-control" name="product_id" id="productid" model="product.id"/>
-                </div>
-                <div class="form-group">
-                    <label for="productname">Product Name</label>
-                    <input type="text" class="form-control" name="product_name" id="productname" model="product.name"/>
-                </div>
-                <div class="form-group">
-                    <label for="productqty">Product Quantity</label>
-                    <input type="text" class="form-control" name="product_quantity" id="productqty" model="product.quantity"/>
-                </div>
-                <div class="form-group">
-                    <label for="productprice">Product Price</label>
-                    <input type="text" class="form-control" name="product_price" id="productprice" model="product.price"/>
-                </div>
-                <div class="form-group">
-                    <label for="producturl">Product Url</label>
-                    <input type="text" class="form-control" name="product_url" id="producturl" model="product.url"/>
-                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="btn btn-default" style="margin-bottom:12px;" ng-click="addnew = !addnew">Add new product</button>
+        </div>
+    </div>
+    <div class="row">
+        <div id="newform" class="col-sm-12" ng-show="addnew">
+            <div class="form-group">
+                <label for="productid">Product Id</label>
+                <input type="text" class="form-control" name="product_id" id="productid" ng-model="product.id"/>
+            </div>
+            <div class="form-group">
+                <label for="productname">Product Name</label>
+                <input type="text" class="form-control" name="product_name" id="productname" ng-model="product.name"/>
+            </div>
+            <div class="form-group">
+                <label for="productqty">Product Quantity</label>
+                <input type="text" class="form-control" name="product_quantity" id="productqty" ng-model="product.quantity"/>
+            </div>
+            <div class="form-group">
+                <label for="productprice">Product Price</label>
+                <input type="text" class="form-control" name="product_price" id="productprice" ng-model="product.price"/>
+            </div>
+            <div class="form-group">
+                <label for="producturl">Product Url</label>
+                <input type="text" class="form-control" name="product_url" id="producturl" ng-model="product.url"/>
+            </div>
 
-                <div class="form-group">
-                    <label for="productxtra">Product Extra</label><br />
-                    <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtrafalse" model="product.extra" ng-value="0">False</label></input>
-                    <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtratrue" model="product.extra" ng-value="1">True</label></input>
-                </div>
-                <div class="form-group">
-                    <label for="productxtraqty">Extra Quantity</label>
-                    <input type="text" class="form-control" name="product_xtraqty" id="productxtraqty" model="product.extraQuantity"/>
-                </div>
+            <div class="form-group">
+                <label for="productxtra">Product Extra</label><br />
+                <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtrafalse" ng-model="product.extra" ng-value="0">False</label></input>
+                <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtratrue" ng-model="product.extra" ng-value="1">True</label></input>
+            </div>
+            <div class="form-group">
+                <label for="productxtraqty">Extra Quantity</label>
+                <input type="text" class="form-control" name="product_xtraqty" id="productxtraqty" ng-model="product.extraQuantity"/>
+            </div>
 
-                <div class="form-group">
-                    <label for="productcatalogid">Catalog Id</label>
-                    <input type="text" class="form-control" name="product_catalogid" id="productcatalogid" model="product.catalogid"/>
-                </div>
-                <div class="form-group">
-                    <button ng-click="addProduct();" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+            <div class="form-group">
+                <label for="productcatalogid">Catalog Id</label>
+                <input type="text" class="form-control" name="product_catalogid" id="productcatalogid" ng-model="product.catalogId"/>
+            </div>
+            <div class="form-group">
+                <button ng-click="addProduct();" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <pre>{{ data | json }}</pre>
         </div>
     </div>
 
-    <pre>{{ data | json }}</pre>
 </div>
 

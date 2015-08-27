@@ -19,21 +19,28 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", fu
 // because the request to the server has not returned when we reach this line.
     console.log($firebaseObject(prodName));
     $scope.product = {};
+    $scope.addnew = false;
+
+
 
     var products = $firebaseArray(prodName);
 
     $scope.addProduct = function() {
         // $add on a synchronized array is like Array.push() except it saves to the database!
-        products.$add({
-            Id: $scope.product.id,
-            Name: $scope.product.name,
-            Quantity: $scope.product.quantity,
-            Price: $scope.product.price,
-            ProductUrl: $scope.product.url,
-            Extra: $scope.product.extra,
-            ExtraQuantity: $scope.product.extraQuantity,
-            CatalogId: $scope.product.catalogId
-        });
+        var prod = {
+            Id: $scope.product.id != undefined ? $scope.product.id : null,
+            Name: $scope.product.name != undefined ? $scope.product.name : null,
+            Quantity: $scope.product.quantity != undefined ? $scope.product.quantity : null,
+            Price: $scope.product.price != undefined ? $scope.product.price : null,
+            ProductUrl: $scope.product.url != undefined ? $scope.product.url : null,
+            Extra: $scope.product.extra != undefined ? $scope.product.extra : null,
+            ExtraQuantity: $scope.product.extraQuantity != undefined ? $scope.product.extraQuantity : null,
+            CatalogId: $scope.product.catalogId != undefined ? $scope.product.catalogId : null,
+        };
+        console.log(prod);
+        products.$add(prod).then(
+            $scope.product = {}
+        );
     };
 
 }]);

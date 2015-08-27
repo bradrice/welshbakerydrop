@@ -74,7 +74,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
         $scope.setboxfull();
     }
 
-//gets called every time an item is added to a box to check if it is full
+//gets called every time an item is added to a box or removed from a box to check if it is full
     $scope.setboxfull = function(){
         $scope.flavorPacks =  $filter('filter')($scope.models.lists.B, {'category': 'flavorPack'});
         $scope.extraPacks =  $filter('filter')($scope.models.lists.B, {'category': 'Extra'});
@@ -87,12 +87,18 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             }
             $scope.my.flavorval = tempval;
         }
+        else {
+            $scope.my.flavorval = 0;
+        }
         if($scope.extraPacks != undefined && $scope.extraPacks.length > 0){
             var tempval = 0;
             for(var i=0; i < $scope.extraPacks.length; i++) {
                 tempval += parseInt($scope.extraPacks[i]['quantity']);
             }
             $scope.my.extraval = tempval;
+        }
+        else {
+            $scope.my.extraval = 0;
         }
         $scope.my.flavorLeft = parseInt($scope.my.flavorAllowed) - parseInt($scope.my.flavorval);
         $scope.my.extraLeft = parseInt($scope.my.extraAllowed) - parseInt($scope.my.extraval);
@@ -113,10 +119,12 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
     }
 
     $scope.removeItem = function(index, item){
-        //console.log(item);
         if (index > -1) {
             $scope.models.lists.B.splice(index, 1);
             delete $scope.models.lists.hashmap[item.id];
+            $scope.setboxfull();
+        }
+        else{
             $scope.setboxfull();
         }
     };
@@ -197,6 +205,15 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
             $('#extrafullModal').modal();
         }
 
+    };
+
+    $scope.removeExtraItem = function(index, item){
+        //console.log(item);
+        if (index > -1) {
+            $scope.models.lists.B.splice(index, 1);
+            delete $scope.models.lists.hashmap[item.id];
+            $scope.setboxfull();
+        }
     };
 
     $scope.emptyBox = function(){
