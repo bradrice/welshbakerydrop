@@ -3,6 +3,10 @@
 var admin = angular.module('myApp.admin', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
+            $routeProvider.when('/login', {
+                templateUrl: 'admin/login.html',
+                controller: 'LoginCtrl'
+            });
         $routeProvider.when('/admin', {
             templateUrl: 'admin/admin.html',
             controller: 'AdminCtrl'
@@ -20,6 +24,7 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", fu
     console.log($firebaseObject(prodName));
     $scope.product = {};
     $scope.addnew = false;
+    $scope.showlogin = true;
 
 
 
@@ -42,5 +47,25 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", fu
             $scope.product = {}
         );
     };
+
+}]);
+
+admin.controller('LoginCtrl', ['$scope', '$rootScope',  "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
+        var ref = new Firebase("https://welshbaker.firebaseio.com");
+
+    $scope.signIn = function(){
+        ref.authWithPassword({
+            email    : $scope.email,
+            password : $scope.password
+        }, function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+            }
+        });
+    }
+
+
 
 }]);
