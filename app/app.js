@@ -6,7 +6,8 @@ var app = angular.module('myApp', [
     'myApp.view1',
     'myApp.view2',
     'myApp.admin',
-    'firebase'
+    'firebase',
+    'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});

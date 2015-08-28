@@ -13,7 +13,7 @@ var admin = angular.module('myApp.admin', ['ngRoute'])
         });
     }]);
 
-admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", function( $scope, $firebaseArray, $firebaseObject) {
+admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", "$modal", "$log", function( $scope, $firebaseArray, $firebaseObject, $modal, $log) {
     var ref = new Firebase("https://welshbaker.firebaseio.com");
     //$scope.data = $firebaseObject(ref);
     var prodName = ref.child('Products/Product/ProductName');
@@ -28,7 +28,7 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", fu
 
 
 
-    var products = $firebaseArray(prodName);
+    $scope.products = $firebaseArray(prodName);
 
     $scope.addProduct = function() {
         // $add on a synchronized array is like Array.push() except it saves to the database!
@@ -43,10 +43,36 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", fu
             CatalogId: $scope.product.catalogId != undefined ? $scope.product.catalogId : null,
         };
         console.log(prod);
-        products.$add(prod).then(
+        $scope.products.$add(prod).then(
             $scope.product = {}
         );
     };
+
+    $scope.modaledit = function(item) {
+        var modalInstance = $modal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'myModalContent.html',
+            controller: 'ModalInstanceCtrl',
+            item: item,
+            resolve: {
+                item: function(){
+                    return item;
+                }
+            }
+            });
+        };
+
+    $scope.toggleActive = true;
+
+    $scope.$watch('toggleActive', function(){
+        $scope.toggleText = $scope.toggleActive ? 'Active' : 'Not Active';
+    });
+
+        //modalInstance.result.then(function (selectedItem) {
+        //    $scope.selected = selectedItem;
+        //}, function () {
+        //    $log.info('Modal dismissed at: ' + new Date());
+        //});
 
 }]);
 
@@ -69,3 +95,23 @@ admin.controller('LoginCtrl', ['$scope', '$rootScope',  "$firebaseAuth", functio
 
 
 }]);
+
+angular.module('myApp.admin').directive('popoverEdit', function() {
+    return function(scope, element, attrs) {
+        console.log(this);
+    };
+});
+
+angular.module('myApp.admin').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item) {
+
+    $scope.item = item;
+
+
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});
