@@ -130,3 +130,11 @@ div.inline {
   border-color: #222222;
 }
 
+button.active {
+  background-color: #008855 !important;
+  color: #fff !important;
+}
+
+button.inactive {
+  background-color: #aaaaaa;
+}

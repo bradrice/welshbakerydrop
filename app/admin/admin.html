@@ -2,12 +2,12 @@
 
     <div>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <button class="btn btn-default" style="margin-bottom:12px;" ng-click="addnew = !addnew">Add new product</button>
         </div>
     </div>
     <div class="row">
-        <div id="newform" class="col-sm-12" ng-show="addnew">
+        <div id="newform" class="col-sm-6" ng-show="addnew">
             <div class="form-group">
                 <label for="productid">Product Id</label>
                 <input type="text" class="form-control" name="product_id" id="productid" ng-model="product.id"/>
@@ -49,13 +49,16 @@
         </div>
     </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
+                <h4>Products</h4>
                 <ul class="list-group">
-                    <li class="list-group-item"
+                    <div class="list-group-item"
                         ng-repeat="(id, item) in products">
                         {{item.Name}}
-                        <span class="btn btn-default" ng-click="modaledit(item)">
-Edit</span><span class="btn btn-default" ng-click="toggleActive = !toggleActive">{{ toggleText }}</span></li>
+                       <div class="btn-group">
+                       <button class="btn btn-default" ng-click="modaledit(item)">
+Edit</button><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button>
+                       </div>
                 </ul>
             </div>
         </div>

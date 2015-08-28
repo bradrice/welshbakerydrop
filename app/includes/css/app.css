@@ -161,3 +161,14 @@ div.inline {
   background-color: #222222;
   border-color: #222222;
 }
+
+/* line 133, ../scss/app.scss */
+button.active {
+  background-color: #008855 !important;
+  color: #fff !important;
+}
+
+/* line 138, ../scss/app.scss */
+button.inactive {
+  background-color: #aaaaaa;
+}

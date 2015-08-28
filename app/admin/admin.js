@@ -64,9 +64,15 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", "$
 
     $scope.toggleActive = true;
 
-    $scope.$watch('toggleActive', function(){
-        $scope.toggleText = $scope.toggleActive ? 'Active' : 'Not Active';
-    });
+    $scope.setActive = function(id, item) {
+        item.active = !item.active;
+        $scope.products.$save(id).then(function(ref) {
+            //ref.key() === item.$id; // true
+        }, function(error) {
+            console.log("Error:", error);
+        });;
+
+}
 
         //modalInstance.result.then(function (selectedItem) {
         //    $scope.selected = selectedItem;
