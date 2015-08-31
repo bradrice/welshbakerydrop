@@ -51,22 +51,89 @@
         <div class="row">
             <div class="col-sm-6">
                 <h4>Products</h4>
-                <ul class="list-group">
-                    <div class="list-group-item"
-                        ng-repeat="(id, item) in products">
-                        {{item.Name}}
-                       <div class="btn-group">
-                       <button class="btn btn-default" ng-click="modaledit(item)">
-Edit</button><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button>
-                       </div>
-                </ul>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Catalog Id</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Active</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(id, item) in products">
+                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
+                        <td><input type="text" ng-model="item.CatalogId" ng-blur="updateItem(id)" class="form-control"//></td>
+                        <td><input type="text" ng-model="item.Price" value="{{}}" class="form-control"//></td>
+                        <td><input type="text" ng-model="item.Quantity" class="form-control"//></td>
+                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-6">
+                <h4>Yummies</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Product Id</td>
+                        <td>Active</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(id, item) in flavors">
+                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
+                        <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
+                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h4>Scones/Shortbread</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Product Id</td>
+                        <td>Active</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(id, item) in scones_shortbread">
+                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
+                        <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
+                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h4>Extras</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Product Id</td>
+                        <td>Active</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(id, item) in extras">
+                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
+                        <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
+                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <pre>{{ data | json }}</pre>
-        </div>
-    </div>
+    <!--<div class="row">-->
+        <!--<div class="col-sm-12">-->
+            <!--<pre>{{ products | json }}</pre>-->
+        <!--</div>-->
+    <!--</div>-->
     </div>
 </div>
 

@@ -13,22 +13,36 @@ var admin = angular.module('myApp.admin', ['ngRoute'])
         });
     }]);
 
-admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", "$modal", "$log", function( $scope, $firebaseArray, $firebaseObject, $modal, $log) {
-    var ref = new Firebase("https://welshbaker.firebaseio.com");
-    //$scope.data = $firebaseObject(ref);
-    var prodName = ref.child('Products/Product/ProductName');
-    $scope.data = $firebaseObject(prodName);
-    //$scope.data = $firebaseObject(ref.child('products').child('productName'));
-// The obj variable will appear to be empty here and won't contain any remote data,
-// because the request to the server has not returned when we reach this line.
-    console.log($firebaseObject(prodName));
+admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'ItemsService', "$modal", "$log", function( $scope, $firebaseObject, $firebaseArray, ItemsService, $modal, $log) {
+    $scope.products = ItemsService.getItems('Products/Product/ProductName');
+    $scope.flavors = ItemsService.getItems('Products/Flavor/FlavorName');
+    $scope.extras = ItemsService.getItems('Products/ExtraChoice/ExtraChoiceName');
+    $scope.scones_shortbread = ItemsService.getItems('Products/Flavor/scones_shortbread');
+    //var prodRef = ref.child('Products/Product/ProductName');
+    //$scope.products = $firebaseArray(prodRef);
+    //
+
+    $scope.addItem = function () {
+        //ItemsService.addItem(angular.copy($scope.newItem));
+        //$scope.newItem = { name: '', description: '', count: 0 };
+    };
+
+    $scope.updateItem = function (id) {
+        console.log(id);
+        ItemsService.updateItem(id);
+    };
+
+    $scope.removeItem = function (id) {
+        ItemsService.removeItem(id);
+    };
+//// The obj variable will appear to be empty here and won't contain any remote data,
+//// because the request to the server has not returned when we reach this line.
+//    console.log($firebaseObject(prodName));
     $scope.product = {};
     $scope.addnew = false;
     $scope.showlogin = true;
+    //console.log(ref);
 
-
-
-    $scope.products = $firebaseArray(prodName);
 
     $scope.addProduct = function() {
         // $add on a synchronized array is like Array.push() except it saves to the database!
@@ -66,11 +80,7 @@ admin.controller('AdminCtrl', ["$scope", "$firebaseArray", "$firebaseObject", "$
 
     $scope.setActive = function(id, item) {
         item.active = !item.active;
-        $scope.products.$save(id).then(function(ref) {
-            //ref.key() === item.$id; // true
-        }, function(error) {
-            console.log("Error:", error);
-        });;
+        $scope.updateItem(id);
 
 }
 
@@ -121,3 +131,4 @@ angular.module('myApp.admin').controller('ModalInstanceCtrl', function ($scope, 
         $modalInstance.dismiss('cancel');
     };
 });
+

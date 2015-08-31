@@ -1,6 +1,6 @@
 'use strict';
 
-var view1 = angular.module('myApp.view1', ['ngRoute', 'xml'])
+var view1 = angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,15 +9,11 @@ var view1 = angular.module('myApp.view1', ['ngRoute', 'xml'])
   });
 }]);
 
-view1.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('xmlHttpInterceptor');
-});
-
-view1.controller('View1Ctrl', function($scope, $http, $filter) {
+view1.controller('View1Ctrl', function($scope, $http, $filter, ItemsService) {
 
     $scope.models = {
         selected: null,
-        lists: {"A": [], "B": [], "C": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
+        lists: {"A": [], "B": [], "C": [], "D": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
     };
 
     $scope.my = {'num': 0, 'num2': '', 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'flavorLeft': 0, 'extraAllowed': 0, 'flavorAllowed': 0, 'extraval': 0, 'flavorval': 0, 'extraLeft': 0};
@@ -28,24 +24,68 @@ view1.controller('View1Ctrl', function($scope, $http, $filter) {
 
 
     // main data ajax call to get the json file
-    $http.get('data/product.json').success(function (data) {
-        $scope.models.lists.A = data.Products.Flavor.FlavorName;
-        $scope.models.lists.C = data.Products.ExtraChoice.ExtraChoiceName;
-        $scope.models.lists.D = data.Products.Flavor.scones_shortbread;
-        var prods = data.Products.Product.ProductName;
-        for (var i = 0; i < prods.length; i++) {
-            //console.log(prods[i]);
-            if(prods[i].ExtraQuantity > 0){
-                $scope.models.lists.extraProds.push(prods[i]);
-            }
-            else {
-                $scope.models.lists.prodList.push(prods[i]);
-            }
-        }
+    //$http.get('data/product.json').success(function (data) {
+        //$scope.models.lists.A = data.Products.Flavor.FlavorName;
+        //$scope.models.lists.C = data.Products.ExtraChoice.ExtraChoiceName;
+        //$scope.models.lists.D = data.Products.Flavor.scones_shortbread;
+        //var prods = data.Products.Product.ProductName;
+        //for (var i = 0; i < prods.length; i++) {
+        //    //console.log(prods[i]);
+        //    if(prods[i].ExtraQuantity > 0){
+        //        $scope.models.lists.extraProds.push(prods[i]);
+        //    }
+        //    else {
+        //        $scope.models.lists.prodList.push(prods[i]);
+        //    }
+        //}
 
         //console.log($scope.flavors[0].Name)
-    });
+    //});
+    var products = ItemsService.getItems('Products/Product/ProductName');
+    products.$loaded()
+        .then(function() {
+            for (var i = 0; i < products.length; i++) {
+                if (products[i].ExtraQuantity > 0 && products[i].active) {
+                    $scope.models.lists.extraProds.push(products[i]);
+                }
+                else {
+                    if(products[i].active){
+                        $scope.models.lists.prodList.push(products[i]);
+                    }
+                }
+            }
+        });
 
+    var flavors = ItemsService.getItems('Products/Flavor/FlavorName');
+    flavors.$loaded()
+        .then(function() {
+            for (var i = 0; i < flavors.length; i++) {
+                if(flavors[i].active){
+                        $scope.models.lists.A.push(flavors[i]);
+                    }
+                }
+        });
+
+    var extras = ItemsService.getItems('Products/ExtraChoice/ExtraChoiceName');
+    extras.$loaded()
+        .then(function() {
+            for (var i = 0; i < extras.length; i++) {
+                if(extras[i].active){
+                    $scope.models.lists.C.push(extras[i]);
+                }
+            }
+        });
+
+    var scones_shortbread = ItemsService.getItems('Products/Flavor/scones_shortbread');
+    console.log(scones_shortbread);
+    scones_shortbread.$loaded()
+        .then(function() {
+            for (var i = 0; i < scones_shortbread.length; i++) {
+                if(scones_shortbread[i].active){
+                    $scope.models.lists.D.push(scones_shortbread[i]);
+                }
+            }
+        });
 
 
     // function called with you click on a flavor selection in the left most product list

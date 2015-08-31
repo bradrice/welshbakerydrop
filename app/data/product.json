@@ -10,7 +10,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea990",
-          "CatalogId": "123"
+          "CatalogId": "123",
+          "active": "true"
         },
         {
           "Id": "1002",
@@ -21,7 +22,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea976",
-          "CatalogId": "112"
+          "CatalogId": "112",
+          "active": "true"
         },
         {
           "Id": "1003",
@@ -32,7 +34,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea977",
-          "CatalogId": "113"
+          "CatalogId": "113",
+          "active": "true"
         },
         {
           "Id": "1004",
@@ -43,7 +46,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea978",
-          "CatalogId": "114"
+          "CatalogId": "114",
+          "active": "true"
         },
         {
           "Id": "1005",
@@ -54,7 +58,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea979",
-          "CatalogId": "115"
+          "CatalogId": "115",
+          "active": "true"
         },
         {
           "Id": "1006",
@@ -65,7 +70,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea1964",
-          "CatalogId": "140"
+          "CatalogId": "140",
+          "active": "true"
         },
         {
           "Id": "1007",
@@ -76,7 +82,8 @@
           "Extra": "0",
           "ExtraQuantity": "0",
           "YourOption": "textarea1965",
-          "CatalogId": "141"
+          "CatalogId": "141",
+          "active": "true"
         },
         {
           "Id": "2001",
@@ -87,7 +94,8 @@
           "Extra": "1",
           "ExtraQuantity": "4",
           "YourOption": "textarea980",
-          "CatalogId": "116"
+          "CatalogId": "116",
+          "active": "true"
         },
         {
           "Id": "2002",
@@ -98,7 +106,8 @@
           "Extra": "1",
           "ExtraQuantity": "2",
           "YourOption": "textarea981",
-          "CatalogId": "117"
+          "CatalogId": "117",
+          "active": "true"
         },
         {
           "Id": "2003",
@@ -109,7 +118,8 @@
           "Extra": "1",
           "ExtraQuantity": "2",
           "YourOption": "textarea982",
-          "CatalogId": "121"
+          "CatalogId": "121",
+          "active": "true"
         },
         {
           "Id": "2004",
@@ -120,7 +130,8 @@
           "Extra": "1",
           "ExtraQuantity": "1",
           "YourOption": "textarea983",
-          "CatalogId": "122"
+          "CatalogId": "122",
+          "active": "true"
         },
         {
           "Id": "2005",
@@ -131,7 +142,8 @@
           "Extra": "1",
           "ExtraQuantity": "3",
           "YourOption": "textarea1961",
-          "CatalogId": "137"
+          "CatalogId": "137",
+          "active": "true"
         },
         {
           "Id": "2006",
@@ -142,7 +154,8 @@
           "Extra": "1",
           "ExtraQuantity": "2",
           "YourOption": "textarea1962",
-          "CatalogId": "138"
+          "CatalogId": "138",
+          "active": "true"
         },
         {
           "Id": "2007",
@@ -153,7 +166,8 @@
           "Extra": "1",
           "ExtraQuantity": "2",
           "YourOption": "textarea1963",
-          "CatalogId": "139"
+          "CatalogId": "139",
+          "active": "true"
         }
       ]
     },
@@ -162,22 +176,26 @@
         {
           "Id": "1",
           "ProductId": "1001",
-          "Name": "Classic WelshCakes"
+          "Name": "Classic WelshCakes",
+          "active": "true"
         },
         {
           "Id": "2",
           "ProductId": "1001",
-          "Name": "Currant WelshCakes"
+          "Name": "Currant WelshCakes",
+          "active": "true"
         },
         {
           "Id": "3",
           "ProductId": "1001",
-          "Name": "Cinnamon WelshCakes"
+          "Name": "Cinnamon WelshCakes",
+          "active": "true"
         },
         {
           "Id": "4",
           "ProductId": "1001",
-          "Name": "CranOrange WelshCakes"
+          "Name": "CranOrange WelshCakes",
+          "active": "true"
         },
         {
           "Id": "5",
@@ -187,95 +205,108 @@
         {
           "Id": "6",
           "ProductId": "1001",
-          "Name": "Lemon Poppy WelshCakes"
+          "Name": "Lemon Poppy WelshCakes",
+          "active": "true"
         },
         {
           "Id": "7",
           "ProductId": "1001",
-          "Name": "Maple Pecan WelshCakes"
+          "Name": "Maple Pecan WelshCakes",
+          "active": "true"
         },
         {
           "Id": "8",
           "ProductId": "1001",
-          "Name": "Cherry Almond WelshCakes"
+          "Name": "Cherry Almond WelshCakes",
+          "active": "true"
         },
         {
           "Id": "9",
           "ProductId": "1001",
-          "Name": "Chocolate Chip WelshCakes"
+          "Name": "Chocolate Chip WelshCakes",
+          "active": "true"
         },
 
         {
           "Id": "31",
           "ProductId": "1007",
-          "Name": "WF CranOrange WelshCakes"
+          "Name": "WF CranOrange WelshCakes",
+          "active": "true"
         },
         {
           "Id": "10",
           "ProductId": "1004",
-          "Name": "WF Oatmeal WelshCakes"
+          "Name": "WF Oatmeal WelshCakes",
+          "active": "true"
         },
         {
           "Id": "30",
           "ProductId": "1005",
-          "Name": "WF Currant WelshCakes"
+          "Name": "WF Currant WelshCakes",
+          "active": "true"
         },
         {
           "Id": "31",
           "ProductId": "6005-Blue",
-          "Name": "WF Blueberry WelshCakes"
-        }
-      ],
-      "FlavaName": [
+          "Name": "WF Blueberry WelshCakes",
+          "active": "true"
+        },
         {
           "Id": "99",
           "ProductId": "1001",
-          "Name": "Banana Choc WelshCakes"
+          "Name": "Banana Choc WelshCakes",
+          "active": "false"
         },
         {
           "Id": "10",
           "ProductId": "1004",
-          "Name": "Gingerbread WelshCakes"
+          "Name": "Gingerbread WelshCakes",
+          "active": "false"
         },
         {
           "Id": "12",
           "ProductId": "2001",
-          "Name": "Two ChocDip WelshCakes"
+          "Name": "Two ChocDip WelshCakes",
+          "active": "false"
         },
         {
           "Id": "20",
           "ProductId": "2002",
           "Name": "Lemon Poppy Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "false"
         },
         {
           "Id": "18",
           "ProductId": "1011",
           "Name": "WF Griddled Shortbread",
-          "ExcludedId": "1001"
-        }
-      ],
-      "FName": [
+          "ExcludedId": "1001",
+          "active": "true"
+        },
         {
           "Id": "10",
           "ProductId": "1001",
-          "Name": "Pumpkin WelshCakes"
+          "Name": "Pumpkin WelshCakes",
+          "active": "false"
         },
         {
           "Id": "13",
           "ProductId": "2003",
-          "Name": "Two ChocDip Shortbread"
+          "Name": "Two ChocDip Shortbread",
+          "active": "false"
         },
         {
           "Id": "20",
           "ProductId": "2002",
           "Name": "Pumpkin Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "false"
         },
         {
           "Id": "10",
           "ProductId": "1004",
-          "Name": "Patriot"
+          "Name": "Patriot",
+          "active": "false"
         }
       ],
       "scones_shortbread": [
@@ -283,37 +314,43 @@
           "Id": "12",
           "ProductId": "2001",
           "Name": "Blueberry Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "true"
         },
         {
           "Id": "20",
           "ProductId": "2002",
           "Name": "Cranberry Orange Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "true"
         },
         {
           "Id": "12",
           "ProductId": "2001",
           "Name": "Maple Pecan Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "true"
         },
         {
           "Id": "12",
           "ProductId": "2001",
           "Name": "Currant Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "true"
         },
         {
           "Id": "12",
           "ProductId": "2001",
           "Name": "Chocolate Chip Scones",
-          "ExcludedId": "1001,1002"
+          "ExcludedId": "1001,1002",
+          "active": "true"
         },
         {
           "Id": "15",
           "ProductId": "1009A",
           "Name": "Griddled Shortbread",
-          "ExcludedId": "1001"
+          "ExcludedId": "1001",
+          "active": "true"
         }
       ]
     },
@@ -322,44 +359,50 @@
         {
           "Id": "E1",
           "ProductId": "1001",
-          "Name": "Devon Cream"
+          "Name": "Devon Cream",
+          "active": "true"
         },
         {
           "Id": "E2",
           "ProductId": "1001",
-          "Name": "Lemon Curd"
+          "Name": "Lemon Curd",
+          "active": "true"
         },
         {
           "Id": "E3",
           "ProductId": "1001",
-          "Name": "Black Currant Jam"
+          "Name": "Black Currant Jam",
+          "active": "true"
         },
         {
           "Id": "E4",
           "ProductId": "1001",
-          "Name": "Old English Marmalade"
+          "Name": "Old English Marmalade",
+          "active": "true"
         },
         {
           "Id": "E5",
           "ProductId": "1001",
-          "Name": "Prince of Wales Tea"
+          "Name": "Prince of Wales Tea",
+          "active": "true"
         },
         {
           "Id": "E7",
           "ProductId": "1002",
-          "Name": "Welsh Brew Tea"
-        }
-      ],
-      "EName": [
+          "Name": "Welsh Brew Tea",
+          "active": "true"
+        },
         {
           "Id": "4",
           "ProductId": "1001",
-          "Name": "Ginger Preserves"
+          "Name": "Ginger Preserves",
+          "active": "false"
         },
         {
           "Id": "6",
           "ProductId": "1001",
-          "Name": "English Afternoon Tea"
+          "Name": "English Afternoon Tea",
+          "active": "false"
         }
       ]
     }
