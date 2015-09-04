@@ -1,55 +1,72 @@
 <div class="container">
-
-    <div>
     <div class="row">
-        <div class="col-sm-6">
-            <button class="btn btn-default" style="margin-bottom:12px;" ng-click="addnew = !addnew">Add new product</button>
-        </div>
+
     </div>
-    <div class="row">
-        <div id="newform" class="col-sm-6" ng-show="addnew">
-            <div class="form-group">
-                <label for="productid">Product Id</label>
-                <input type="text" class="form-control" name="product_id" id="productid" ng-model="product.id"/>
-            </div>
-            <div class="form-group">
-                <label for="productname">Product Name</label>
-                <input type="text" class="form-control" name="product_name" id="productname" ng-model="product.name"/>
-            </div>
-            <div class="form-group">
-                <label for="productqty">Product Quantity</label>
-                <input type="text" class="form-control" name="product_quantity" id="productqty" ng-model="product.quantity"/>
-            </div>
-            <div class="form-group">
-                <label for="productprice">Product Price</label>
-                <input type="text" class="form-control" name="product_price" id="productprice" ng-model="product.price"/>
-            </div>
-            <div class="form-group">
-                <label for="producturl">Product Url</label>
-                <input type="text" class="form-control" name="product_url" id="producturl" ng-model="product.url"/>
-            </div>
+    <div class="col-sm-12">
+        <h4>Yummies</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <td class="col-sm-4"">Name</td>
+                <td class="col-sm-1">Product Id</td>
+                <td class="col-sm-5">Image</td>
+                <td class="col-sm-1">Active</td>
+                <td class="col-sm-1">Remove</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(id, item) in flavors">
+                <td><input type="text" ng-model="item.Name" ng-blur="updateFlavorItem(id)" class="form-control"/></td>
+                <td><input type="text" ng-model="item.ProductId" ng-blur="updateFlavorItem(id)" class="form-control"//></td>
+                <td><input type="text" ng-model="item.image" ng-blur="updateFlavorItem(id)" class="form-control"//></td>
+                <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setFlavorActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+                <td><button class="btn btn-default btn-danger" ng-click="removeFlavorItem(id);">Remove</button></td>
+            </tr>
+            </tbody>
+        </table>
 
-            <div class="form-group">
-                <label>Product Extra</label><br />
-                <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtrafalse" ng-model="product.extra" ng-value="0">False</label></input>
-                <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtratrue" ng-model="product.extra" ng-value="1">True</label></input>
-            </div>
-            <div class="form-group">
-                <label for="productxtraqty">Extra Quantity</label>
-                <input type="text" class="form-control" name="product_xtraqty" id="productxtraqty" ng-model="product.extraQuantity"/>
-            </div>
+        <h4>Scones/Shortbread</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <td class="col-sm-4"">Name</td>
+                <td class="col-sm-1">Product Id</td>
+                <td class="col-sm-6">Image</td>
+                <td class="col-sm-1">Active</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(id, item) in scones_shortbread">
+                <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
+                <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
+                <td><input type="text" ng-model="item.image" class="form-control"//></td>
+                <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+            </tr>
+            </tbody>
+        </table>
 
-            <div class="form-group">
-                <label for="productcatalogid">Catalog Id</label>
-                <input type="text" class="form-control" name="product_catalogid" id="productcatalogid" ng-model="product.catalogId"/>
-            </div>
-            <div class="form-group">
-                <button ng-click="addProduct();" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
+        <h4>Extras</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <td class="col-sm-4"">Name</td>
+                <td class="col-sm-1">Product Id</td>
+                <td class="col-sm-6">Image</td>
+                <td class="col-sm-1">Active</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(id, item) in extras">
+                <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
+                <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
+                <td><input type="text" ng-model="item.image" class="form-control"//></td>
+                <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <h4>Products</h4>
                 <table class="table">
                     <thead>
@@ -72,70 +89,58 @@
                     </tbody>
                 </table>
             </div>
-
-            <div class="col-sm-6">
-                <h4>Yummies</h4>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <td>Name</td>
-                        <td>Product Id</td>
-                        <td>Active</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="(id, item) in flavors">
-                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
-                        <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
-                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <h4>Scones/Shortbread</h4>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <td>Name</td>
-                        <td>Product Id</td>
-                        <td>Active</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="(id, item) in scones_shortbread">
-                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
-                        <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
-                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <h4>Extras</h4>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <td>Name</td>
-                        <td>Product Id</td>
-                        <td>Active</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="(id, item) in extras">
-                        <td><input type="text" ng-model="item.Name" ng-blur="updateItem(id)" class="form-control"/></td>
-                        <td><input type="text" ng-model="item.ProductId" ng-blur="updateItem(id)" class="form-control"//></td>
-                        <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setActive(id, item); toggleActive = !toggleActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
-                    </tr>
-                    </tbody>
-                </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-default" style="margin-bottom:12px;" ng-click="addnew = !addnew">Add new product</button>
             </div>
         </div>
-    <!--<div class="row">-->
-        <!--<div class="col-sm-12">-->
-            <!--<pre>{{ products | json }}</pre>-->
-        <!--</div>-->
-    <!--</div>-->
+        <div class="row">
+            <div id="newform" class="col-sm-12" ng-show="addnew">
+                <div class="form-group">
+                    <label for="productid">Product Id</label>
+                    <input type="text" class="form-control" name="product_id" id="productid" ng-model="product.id"/>
+                </div>
+                <div class="form-group">
+                    <label for="productname">Product Name</label>
+                    <input type="text" class="form-control" name="product_name" id="productname" ng-model="product.name"/>
+                </div>
+                <div class="form-group">
+                    <label for="productqty">Product Quantity</label>
+                    <input type="text" class="form-control" name="product_quantity" id="productqty" ng-model="product.quantity"/>
+                </div>
+                <div class="form-group">
+                    <label for="productprice">Product Price</label>
+                    <input type="text" class="form-control" name="product_price" id="productprice" ng-model="product.price"/>
+                </div>
+                <div class="form-group">
+                    <label for="producturl">Product Url</label>
+                    <input type="text" class="form-control" name="product_url" id="producturl" ng-model="product.url"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Product Extra</label><br />
+                    <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtrafalse" ng-model="product.extra" ng-value="0">False</label></input>
+                    <label for="product_xtrafalse" class="radio-inline"><input type="radio" name="product_extra" id="product_xtratrue" ng-model="product.extra" ng-value="1">True</label></input>
+                </div>
+                <div class="form-group">
+                    <label for="productxtraqty">Extra Quantity</label>
+                    <input type="text" class="form-control" name="product_xtraqty" id="productxtraqty" ng-model="product.extraQuantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="productcatalogid">Catalog Id</label>
+                    <input type="text" class="form-control" name="product_catalogid" id="productcatalogid" ng-model="product.catalogId"/>
+                </div>
+                <div class="form-group">
+                    <button ng-click="addProduct();" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+
+
 
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">

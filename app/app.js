@@ -15,19 +15,17 @@ config(['$routeProvider', function($routeProvider) {
 
 app.constant('FIREBASE_URI', 'https://welshbaker.firebaseio.com/');
 
-app.factory('ItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URI', function ($firebaseArray, $firebaseObject, FIREBASE_URI) {
+app.factory('FlavorItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URI', function ($firebaseArray, $firebaseObject, FIREBASE_URI) {
 
-    var items;
+    var ref = new Firebase(FIREBASE_URI + 'Products/Flavor/FlavorName');
+    var items = $firebaseArray(ref);
 
     var getItems = function (urlparams) {
-        var ref = new Firebase(FIREBASE_URI);
-        var rootRef = ref.child(urlparams);
-        items = $firebaseArray(rootRef);
         return items;
-        console.log(items);
     };
 
-    var addItem = function (item) {
+    var addItem = function (item, urlparams) {
+
         items.$add(item);
     };
 
@@ -36,6 +34,7 @@ app.factory('ItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URI'
     };
 
     var removeItem = function (id) {
+        console.log('removing ' + id)
         items.$remove(id);
     };
 

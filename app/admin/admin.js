@@ -13,28 +13,34 @@ var admin = angular.module('myApp.admin', ['ngRoute'])
         });
     }]);
 
-admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'ItemsService', "$modal", "$log", function( $scope, $firebaseObject, $firebaseArray, ItemsService, $modal, $log) {
-    $scope.products = ItemsService.getItems('Products/Product/ProductName');
-    $scope.flavors = ItemsService.getItems('Products/Flavor/FlavorName');
-    $scope.extras = ItemsService.getItems('Products/ExtraChoice/ExtraChoiceName');
-    $scope.scones_shortbread = ItemsService.getItems('Products/Flavor/scones_shortbread');
+admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'FlavorItemsService', function( $scope, $firebaseObject, $firebaseArray, FlavorItemsService) {
+    //$scope.products = ProductItemsService.getItems('Products/Product/ProductName');
+    $scope.flavors = FlavorItemsService.getItems();
+    //$scope.extras = ItemsService.getItems('Products/ExtraChoice/ExtraChoiceName');
+    //$scope.scones_shortbread = ItemsService.getItems('Products/Flavor/scones_shortbread');
     //var prodRef = ref.child('Products/Product/ProductName');
     //$scope.products = $firebaseArray(prodRef);
     //
 
-    $scope.addItem = function () {
+    $scope.addFlavorItem = function () {
         //ItemsService.addItem(angular.copy($scope.newItem));
         //$scope.newItem = { name: '', description: '', count: 0 };
     };
 
-    $scope.updateItem = function (id) {
+    $scope.updateFlavorItem = function (id) {
         console.log(id);
-        ItemsService.updateItem(id);
+        FlavorItemsService.updateItem(id);
     };
 
-    $scope.removeItem = function (id) {
-        ItemsService.removeItem(id);
+    $scope.removeFlavorItem = function (id) {
+        FlavorItemsService.removeItem(id);
     };
+
+    $scope.toggleActive = true;
+
+    $scope.setFlavorActive = function(id, item) {
+        item.active = !item.active;
+        $scope.updateItem(id);
 //// The obj variable will appear to be empty here and won't contain any remote data,
 //// because the request to the server has not returned when we reach this line.
 //    console.log($firebaseObject(prodName));
@@ -62,25 +68,21 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'I
         );
     };
 
-    $scope.modaledit = function(item) {
-        var modalInstance = $modal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'myModalContent.html',
-            controller: 'ModalInstanceCtrl',
-            item: item,
-            resolve: {
-                item: function(){
-                    return item;
-                }
-            }
-            });
-        };
+    //$scope.modaledit = function(item) {
+    //    var modalInstance = $modal.open({
+    //        animation: $scope.animationsEnabled,
+    //        templateUrl: 'myModalContent.html',
+    //        controller: 'ModalInstanceCtrl',
+    //        item: item,
+    //        resolve: {
+    //            item: function(){
+    //                return item;
+    //            }
+    //        }
+    //        });
+    //    };
 
-    $scope.toggleActive = true;
 
-    $scope.setActive = function(id, item) {
-        item.active = !item.active;
-        $scope.updateItem(id);
 
 }
 
