@@ -45,3 +45,96 @@ app.factory('FlavorItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBAS
         removeItem: removeItem
     }
 }]);
+
+app.factory('ExtraItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URI', function ($firebaseArray, $firebaseObject, FIREBASE_URI) {
+
+    var ref = new Firebase(FIREBASE_URI + 'Products/ExtraChoice/ExtraChoiceName');
+    var items = $firebaseArray(ref);
+
+    var getItems = function (urlparams) {
+        return items;
+    };
+
+    var addItem = function (item, urlparams) {
+
+        items.$add(item);
+    };
+
+    var updateItem = function (id) {
+        items.$save(id);
+    };
+
+    var removeItem = function (id) {
+        console.log('removing ' + id)
+        items.$remove(id);
+    };
+
+    return {
+        getItems: getItems,
+        addItem: addItem,
+        updateItem: updateItem,
+        removeItem: removeItem
+    }
+}]);
+
+app.factory('ProductItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URI', function ($firebaseArray, $firebaseObject, FIREBASE_URI) {
+
+    var ref = new Firebase(FIREBASE_URI + 'Products/Product/ProductName');
+    var items = $firebaseArray(ref);
+
+    var getItems = function (urlparams) {
+        return items;
+    };
+
+    var addItem = function (item, urlparams) {
+
+        items.$add(item);
+    };
+
+    var updateItem = function (id) {
+        items.$save(id);
+    };
+
+    var removeItem = function (id) {
+        console.log('removing ' + id)
+        items.$remove(id);
+    };
+
+    return {
+        getItems: getItems,
+        addItem: addItem,
+        updateItem: updateItem,
+        removeItem: removeItem
+    }
+}]);
+
+app.factory('SconeItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URI', function ($firebaseArray, $firebaseObject, FIREBASE_URI) {
+
+    var ref = new Firebase(FIREBASE_URI + 'Products/Flavor/scones_shortbread');
+    var items = $firebaseArray(ref);
+
+    var getItems = function (urlparams) {
+        return items;
+    };
+
+    var addItem = function (item, urlparams) {
+
+        items.$add(item);
+    };
+
+    var updateItem = function (id) {
+        items.$save(id);
+    };
+
+    var removeItem = function (id) {
+        console.log('removing ' + id)
+        items.$remove(id);
+    };
+
+    return {
+        getItems: getItems,
+        addItem: addItem,
+        updateItem: updateItem,
+        removeItem: removeItem
+    }
+}]);

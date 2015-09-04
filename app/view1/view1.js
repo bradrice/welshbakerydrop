@@ -9,7 +9,7 @@ var view1 = angular.module('myApp.view1', ['ngRoute'])
   });
 }]);
 
-view1.controller('View1Ctrl', function($scope, $http, $filter, ItemsService) {
+view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsService, ProductItemsService, ExtraItemsService, SconeItemsService) {
 
     $scope.models = {
         selected: null,
@@ -41,7 +41,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, ItemsService) {
 
         //console.log($scope.flavors[0].Name)
     //});
-    var products = ItemsService.getItems('Products/Product/ProductName');
+    var products = ProductItemsService.getItems();
     products.$loaded()
         .then(function() {
             for (var i = 0; i < products.length; i++) {
@@ -56,7 +56,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, ItemsService) {
             }
         });
 
-    var flavors = ItemsService.getItems('Products/Flavor/FlavorName');
+    var flavors = FlavorItemsService.getItems();
     flavors.$loaded()
         .then(function() {
             for (var i = 0; i < flavors.length; i++) {
@@ -66,7 +66,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, ItemsService) {
                 }
         });
 
-    var extras = ItemsService.getItems('Products/ExtraChoice/ExtraChoiceName');
+    var extras = ExtraItemsService.getItems();
     extras.$loaded()
         .then(function() {
             for (var i = 0; i < extras.length; i++) {
@@ -76,7 +76,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, ItemsService) {
             }
         });
 
-    var scones_shortbread = ItemsService.getItems('Products/Flavor/scones_shortbread');
+    var scones_shortbread = SconeItemsService.getItems();
     console.log(scones_shortbread);
     scones_shortbread.$loaded()
         .then(function() {
