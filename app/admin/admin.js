@@ -13,11 +13,11 @@ var admin = angular.module('myApp.admin', ['ngRoute'])
         });
     }]);
 
-admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'FlavorItemsService', function( $scope, $firebaseObject, $firebaseArray, FlavorItemsService) {
-    //$scope.products = ProductItemsService.getItems('Products/Product/ProductName');
+admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'FlavorItemsService', 'ExtraItemsService', 'ProductItemsService', 'SconeItemsService', function( $scope, $firebaseObject, $firebaseArray, FlavorItemsService, ExtraItemsService, ProductItemsService, SconeItemsService) {
+    $scope.products = ProductItemsService.getItems();
     $scope.flavors = FlavorItemsService.getItems();
-    //$scope.extras = ItemsService.getItems('Products/ExtraChoice/ExtraChoiceName');
-    //$scope.scones_shortbread = ItemsService.getItems('Products/Flavor/scones_shortbread');
+    $scope.extras = ExtraItemsService.getItems();
+    $scope.scones_shortbread = SconeItemsService.getItems();
     //var prodRef = ref.child('Products/Product/ProductName');
     //$scope.products = $firebaseArray(prodRef);
     //
@@ -48,6 +48,35 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     $scope.addnew = false;
     $scope.showlogin = true;
     //console.log(ref);
+
+        $scope.addExtraItem = function () {
+            //ItemsService.addItem(angular.copy($scope.newItem));
+            //$scope.newItem = { name: '', description: '', count: 0 };
+        };
+
+        $scope.updateExtraItem = function (id) {
+            console.log(id);
+            ExtraItemsService.updateItem(id);
+        };
+
+        $scope.removeExtraItem = function (id) {
+            ExtraItemsService.removeItem(id);
+        };
+
+
+        $scope.addProductItem = function () {
+            //ItemsService.addItem(angular.copy($scope.newItem));
+            //$scope.newItem = { name: '', description: '', count: 0 };
+        };
+
+        $scope.updateProductItem = function (id) {
+            console.log(id);
+            ProductItemsService.updateItem(id);
+        };
+
+        $scope.removeProductItem = function (id) {
+            ProductItemsService.removeItem(id);
+        };
 
 
     $scope.addProduct = function() {
