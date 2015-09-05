@@ -280,7 +280,6 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
     $scope.addToCart = function() {
         $scope.prodData = {'text': $scope.models.lists.B};
-
         $('#formModal').modal();
     }
 
