@@ -18,8 +18,6 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     $scope.flavors = FlavorItemsService.getItems();
     $scope.extras = ExtraItemsService.getItems();
     $scope.scones_shortbread = SconeItemsService.getItems();
-    //var prodRef = ref.child('Products/Product/ProductName');
-    //$scope.products = $firebaseArray(prodRef);
     //
 
     $scope.addFlavorItem = function () {
@@ -40,7 +38,7 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
 
     $scope.setFlavorActive = function(id, item) {
         item.active = !item.active;
-        $scope.updateItem(id);
+        $scope.updateFlavorItem(id);
 //// The obj variable will appear to be empty here and won't contain any remote data,
 //// because the request to the server has not returned when we reach this line.
 //    console.log($firebaseObject(prodName));

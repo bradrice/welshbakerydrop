@@ -89,8 +89,9 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
 
     // function called with you click on a flavor selection in the left most product list
-    $scope.setFlavorAllowed = function(){
+    $scope.setFlavorAllowed = function(prodid){
         //console.log($scope.my.num);
+        $scope.prodid = prodid;
         $scope.my.flavorAllowed = $scope.my.num;
         $scope.my.extraAllowed = 0;
         if($scope.my.flavorval > $scope.my.flavorAllowed){
@@ -100,8 +101,9 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
     }
 
     // function called when you click on the extras in the left most product list
-    $scope.setExtraAllowed = function(packQty, extQty){
+    $scope.setExtraAllowed = function(packQty, extQty, prodid){
         //console.log(packQty + " : " + extQty);
+        $scope.prodid = prodid;
         $scope.my.extraAllowed = parseInt(extQty);
         $scope.my.flavorAllowed = parseInt(packQty);
         $scope.showExtras = true;
@@ -184,6 +186,15 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
     // this is to add flavor packs to the right side container
     $scope.addItem = function(index, item, model){
+        console.log($scope.prodid + " " + item.ExcludedId);
+        if(item.ExcludedId) {
+            if (item.ExcludedId.indexOf($scope.prodid) != -1){
+            console.log(item.ExcludedId.indexOf($scope.prodid));
+            $('#excludedModal').modal();
+            return;
+            }
+        }
+
         if($scope.my.flavorAllowed == 0){
             $('#emptyModal').modal();
             return;
