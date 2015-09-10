@@ -52,7 +52,7 @@
             <div class="col-sm-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">3. Add your filled box to the shopping cartt</h3>
+                        <h3 class="panel-title">3. Add your filled box to the shopping cart</h3>
                     </div>
                     <div class="panel-body">
                         <div class="col-sm-12 omega">
@@ -166,13 +166,13 @@
             </div>
             <div class="modal-body">
                 <div id="sendform">
-                    <form enctype="multipart/form-data" method="post" action="http://www.welshbaker.com/add_cart.asp" style="display: block" target="_self">
-                        <input type="hidden" name="item_id" value="{{prod.category}}"/>
-                        <input type="hidden" name="itemid" value="{{prod.id}}"/>
+                    <form enctype="multipart/form-data" method="post" id="sendCart" action="http://www.welshbaker.com/add_cart.asp" style="display: block" target="_self">
+                        <input type="hidden" name="item_id" value="{{product.CatalogId}}"/>
+                        <input type="hidden" name="itemid" value="{{product.Id}}"/>
                         <input type="hidden" name="category_id" value="[catid]"/>
                         <input type="hidden" name="qty-0" value="1"/>
                         <input type="hidden" name="std_price" value="10.00"/>
-                       <carttextarea></carttextarea>
+                        <carttextarea tarea="{{product.YourOption}}"></carttextarea>
                         <input type="hidden" name="specialamount" value="{{prod.price}}"/>
                     </form>
                 </div>

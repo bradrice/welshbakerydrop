@@ -89,9 +89,10 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
 
     // function called with you click on a flavor selection in the left most product list
-    $scope.setFlavorAllowed = function(prodid){
-        //console.log($scope.my.num);
-        $scope.prodid = prodid;
+    $scope.setFlavorAllowed = function(prod){
+        //console.log(prod);
+        $scope.product = prod;
+        $scope.prodid = prod.Id;
         $scope.my.flavorAllowed = $scope.my.num;
         $scope.my.extraAllowed = 0;
         if($scope.my.flavorval > $scope.my.flavorAllowed){
@@ -280,7 +281,8 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
     $scope.addToCart = function() {
         $scope.prodData = {'text': $scope.models.lists.B};
-        $('#formModal').modal();
+        $("#sendCart").submit();
+        //$('#formModal').modal();
     }
 
 
@@ -304,12 +306,15 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
 angular.module('myApp.view1').directive('carttextarea', function(){
     return {
-        template: '<textarea type="hidden" name="customProduct" id="customProduct" class="form-control"></textarea>',
+        template: '<textarea type="hidden" name="{{product.YourOption}}" id="customProduct" class="form-control"></textarea>',
         restrict: "E",
         scope: false,
-        link: function(scope, elem, attr){
+        //scope: {
+        //    tarea: "@"
+        //},
+        link: function(scope, elem, attrs){
             scope.$watch('models.lists.B', function(newval, oldval){
-                //console.log("model change: " + newval);
+                console.log("model change: " + newval);
                 var textarray = [];
                 var textstring = "";
                 var arrayLength = newval.length;
