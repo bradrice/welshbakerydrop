@@ -166,7 +166,7 @@
             </div>
             <div class="modal-body">
                 <div id="sendform">
-                    <form enctype="multipart/form-data" method="post" id="sendCart" action="http://www.welshbaker.com/add_cart.asp" style="display: block" target="_self">
+                    <form enctype="multipart/form-data" method="post" id="sendCart" action="https://www.welshbaker.com/add_cart.asp" style="display: block" target="_self">
                         <input type="hidden" name="item_id" value="{{product.CatalogId}}"/>
                         <input type="hidden" name="itemid" value="{{product.Id}}"/>
                         <input type="hidden" name="category_id" value="[catid]"/>
@@ -183,3 +183,17 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script>
+    $(document).ready(function(){
+        if (Cookies.get('viewCart')) {
+            Cookies.set("viewCart", 0);
+        }
+        var flag = Cookies.get("viewCart")
+        if (flag == 1) {
+            Cookies.set("viewCart", 0);
+//            $("#loading").toggle();
+            window.location.href = "http://www.welshbaker.com/view_cart.asp";
+        }
+    });
+</script>

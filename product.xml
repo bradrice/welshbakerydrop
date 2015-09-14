@@ -1,0 +1,422 @@
+<Products>
+ <Product>
+   <ProductName>
+     <Id>1001</Id>
+     <Name>2 Packs</Name>
+     <Quantity>2</Quantity>
+     <Price>12.88</Price>
+     <ProductUrl></ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea990</YourOption>
+     <CatalogId>123</CatalogId>
+   </ProductName>
+    
+<ProductName>
+     <Id>1002</Id>
+     <Name>6 Packs</Name>
+     <Quantity>6</Quantity>
+     <Price>28.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea976</YourOption>
+     <CatalogId>112</CatalogId>
+   </ProductName>
+   
+<ProductName>
+     <Id>1003</Id>
+     <Name>12 Packs</Name>
+     <Quantity>12</Quantity>
+     <Price>48.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea977</YourOption>
+     <CatalogId>113</CatalogId>
+   </ProductName>
+   <ProductName>
+     <Id>1004</Id>
+     <Name>18 Packs</Name>
+     <Quantity>18</Quantity>
+     <Price>66.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea978</YourOption>
+     <CatalogId>114</CatalogId>
+   </ProductName>
+   <ProductName>
+     <Id>1005</Id>
+     <Name>24 Packs</Name>
+     <Quantity>24</Quantity>
+     <Price>86.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea979</YourOption>
+     <CatalogId>115</CatalogId>
+   </ProductName>
+   <ProductName>
+     <Id>1006</Id>
+     <Name>30 Packs</Name>
+     <Quantity>30</Quantity>
+     <Price>98.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea1964</YourOption>
+     <CatalogId>140</CatalogId>
+   </ProductName>
+   <ProductName>
+     <Id>1007</Id>
+     <Name>36 Packs</Name>
+     <Quantity>36</Quantity>
+     <Price>109.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>0</Extra>
+     <ExtraQuantity>0</ExtraQuantity>
+     <YourOption>textarea1965</YourOption>
+     <CatalogId>141</CatalogId>
+   </ProductName>
+
+   <ProductName>
+     <Id>2001</Id>
+     <Name>2 Packs + 4 Extras</Name>
+     <Quantity>2</Quantity>
+     <Price>41.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>4</ExtraQuantity>
+     <YourOption>textarea980</YourOption>
+     <CatalogId>116</CatalogId>
+   </ProductName>
+   <ProductName>
+     <Id>2002</Id>
+     <Name>5 Packs + 2 Extras</Name>
+     <Quantity>5</Quantity>
+     <Price>41.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>2</ExtraQuantity>
+     <YourOption>textarea981</YourOption>
+     <CatalogId>117</CatalogId>
+ </ProductName>
+  <ProductName>
+     <Id>2003</Id>
+     <Name>8 Packs + 2 Extras</Name>
+     <Quantity>8</Quantity>
+     <Price>48.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>2</ExtraQuantity>
+     <YourOption>textarea982</YourOption>
+     <CatalogId>121</CatalogId>
+ </ProductName>
+  <ProductName>
+     <Id>2004</Id>
+     <Name>10 Packs + 1 Extras</Name>
+     <Quantity>10</Quantity>
+     <Price>48.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>1</ExtraQuantity>
+     <YourOption>textarea983</YourOption>
+     <CatalogId>122</CatalogId>
+ </ProductName>
+ <ProductName>
+     <Id>2005</Id>
+     <Name>12 Packs + 3 Extras</Name>
+     <Quantity>12</Quantity>
+     <Price>64.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>3</ExtraQuantity>
+     <YourOption>textarea1961</YourOption>
+     <CatalogId>137</CatalogId>
+ </ProductName>
+ <ProductName>
+     <Id>2006</Id>
+     <Name>18 Packs + 2 Extras</Name>
+     <Quantity>18</Quantity>
+     <Price>76.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>2</ExtraQuantity>
+     <YourOption>textarea1962</YourOption>
+     <CatalogId>138</CatalogId>
+ </ProductName>
+ <ProductName>
+     <Id>2007</Id>
+     <Name>24 Packs + 2 Extras</Name>
+     <Quantity>24</Quantity>
+     <Price>95.88</Price>
+     <ProductUrl>http://www.welshbaker.com/boxdeals</ProductUrl>
+     <Extra>1</Extra>
+     <ExtraQuantity>2</ExtraQuantity>
+     <YourOption>textarea1963</YourOption>
+     <CatalogId>139</CatalogId>
+ </ProductName>
+
+
+
+ </Product>
+
+ <Flavor>
+   <FlavorName>
+     <Id>1</Id>
+     <ProductId>1001</ProductId>
+     <Name>Classic WelshCakes</Name>
+     <ExcludedId></ExcludedId>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>2</Id>
+     <ProductId>1001</ProductId>
+     <Name>Currant WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>3</Id>
+     <ProductId>1001</ProductId>
+     <Name>Cinnamon WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>4</Id>
+     <ProductId>1001</ProductId>
+     <Name>CranOrange WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>5</Id>
+     <ProductId>1001</ProductId>
+     <Name>Blueberry WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>6</Id>
+     <ProductId>1001</ProductId>
+     <Name>Lemon Poppy WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>7</Id>
+     <ProductId>1001</ProductId>
+     <Name>Maple Pecan WelshCakes</Name>
+   </FlavorName>
+
+
+   <FlavorName>
+     <Id>8</Id>
+     <ProductId>1001</ProductId>
+     <Name>Cherry Almond WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>9</Id>
+     <ProductId>1001</ProductId>
+     <Name>Chocolate Chip WelshCakes</Name>
+   </FlavorName>
+
+   <FlavaName>
+     <Id>99</Id>
+     <ProductId>1001</ProductId>
+     <Name>Banana Choc WelshCakes</Name>
+   </FlavaName>
+
+   <FName>
+     <Id>10</Id>
+     <ProductId>1001</ProductId>
+     <Name>Pumpkin WelshCakes</Name>
+   </FName>
+
+   <FlavaName>
+     <Id>10</Id>
+     <ProductId>1004</ProductId>
+     <Name>Gingerbread WelshCakes</Name>
+   </FlavaName>
+
+   <FlavaName>
+     <Id>10</Id>
+     <ProductId>1004</ProductId>
+     <Name>Patriot WelshCakes</Name>
+   </FlavaName>
+
+   <FlavorName>
+     <Id>10</Id>
+     <ProductId>1004</ProductId>
+     <Name>Tea and Fruit WelshCakes</Name>
+   </FlavorName>
+
+   <FlavaName>
+     <Id>12</Id>
+     <ProductId>2001</ProductId>
+     <Name>Two ChocDip WelshCakes</Name>
+   </FlavaName>
+
+   <FName>
+     <Id>13</Id>
+     <ProductId>2003</ProductId>
+     <Name>Two ChocDip Shortbread</Name>
+   </FName>
+
+   <FlavorName>
+     <Id>12</Id>
+     <ProductId>2001</ProductId>
+     <Name>Blueberry Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+   </FlavorName>
+
+  <FlavorName>
+     <Id>20</Id>
+     <ProductId>2002</ProductId>
+     <Name>Cranberry Orange Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+   </FlavorName>
+ 
+ <FlavaName>
+     <Id>12</Id>
+     <ProductId>2001</ProductId>
+     <Name>Maple Pecan Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+   </FlavaName>
+ 
+ <FlavaName>
+     <Id>20</Id>
+     <ProductId>2002</ProductId>
+     <Name>Lemon Poppy Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+ </FlavaName>
+
+
+  <FName>
+     <Id>20</Id>
+     <ProductId>2002</ProductId>
+     <Name>Pumpkin Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+
+   </FName>
+  <FlavaName>
+     <Id>12</Id>
+     <ProductId>2001</ProductId>
+     <Name>Currant Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+   </FlavaName>
+
+  <FlavorName>
+     <Id>12</Id>
+     <ProductId>2001</ProductId>
+     <Name>Chocolate Chip Scones</Name>
+     <ExcludedId>1001,1002</ExcludedId>
+   </FlavorName>
+
+
+   <FlavorName>
+     <Id>15</Id>
+     <ProductId>1009A</ProductId>
+     <Name>Griddled Shortbread</Name>
+     <ExcludedId>1001</ExcludedId>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>15</Id>
+     <ProductId>1009A</ProductId>
+     <Name>Lemon Shortbread</Name>
+     <ExcludedId>1001</ExcludedId>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>15</Id>
+     <ProductId>1009A</ProductId>
+     <Name>Raspberry Shortbread</Name>
+     <ExcludedId>1001</ExcludedId>
+   </FlavorName>
+   <FlavaName>
+     <Id>18</Id>
+     <ProductId>1011</ProductId>
+     <Name>WF Griddled Shortbread</Name>
+    <ExcludedId>1001</ExcludedId> 
+   </FlavaName>
+
+   <FlavorName>
+     <Id>31</Id>
+     <ProductId>1007</ProductId>
+     <Name>WF CranOrange WelshCakes</Name>
+   </FlavorName>
+
+   <FlavaName>
+     <Id>10</Id>
+     <ProductId>1004</ProductId>
+     <Name>WF Oatmeal WelshCakes</Name>
+   </FlavaName>
+
+    <FlavorName>
+     <Id>30</Id>
+     <ProductId>1005</ProductId>
+     <Name>WF Currant WelshCakes</Name>
+   </FlavorName>
+
+   <FlavorName>
+     <Id>31</Id>
+     <ProductId>6005-Blue</ProductId>
+     <Name>WF Blueberry WelshCakes</Name>
+   </FlavorName>
+
+   
+   
+ 
+ </Flavor>
+
+ <ExtraChoice>
+   <ExtraChoiceName>
+     <Id>1</Id>
+     <ProductId>1001</ProductId>
+     <Name>Devon Cream</Name>
+   </ExtraChoiceName>
+   
+   <ExtraChoiceName>
+     <Id>2</Id>
+     <ProductId>1001</ProductId>
+     <Name>Lemon Curd</Name>
+   </ExtraChoiceName>
+
+   <ExtraChoiceName>
+     <Id>3</Id>
+     <ProductId>1001</ProductId>
+     <Name>Black Currant Jam</Name>
+   </ExtraChoiceName>
+
+   <ExtraChoiceName>
+     <Id>4</Id>
+     <ProductId>1001</ProductId>
+     <Name>Ginger Preserves</Name>
+   </ExtraChoiceName>
+
+   <ExtraChoiceName>
+     <Id>4</Id>
+     <ProductId>1001</ProductId>
+     <Name>Old English Marmalade</Name>
+   </ExtraChoiceName>
+
+   <ExtraChoiceName>
+     <Id>5</Id>
+     <ProductId>1001</ProductId>
+     <Name>Prince of Wales Tea</Name>
+   </ExtraChoiceName>
+
+   <EName>
+     <Id>6</Id>
+     <ProductId>1001</ProductId>
+     <Name>English Afternoon Tea</Name>
+   </EName>
+
+   <ExtraChoiceName>
+     <Id>7</Id>
+     <ProductId>1002</ProductId>
+     <Name>Welsh Brew Tea</Name>
+   </ExtraChoiceName>
+  
+ </ExtraChoice>
+
+</Products>

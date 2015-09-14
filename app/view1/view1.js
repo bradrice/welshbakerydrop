@@ -281,7 +281,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
     $scope.addToCart = function() {
         $scope.prodData = {'text': $scope.models.lists.B};
-        $("#sendCart").submit();
+        document.forms["sendCart"].submit();
         //$('#formModal').modal();
     }
 
