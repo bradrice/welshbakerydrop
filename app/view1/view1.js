@@ -9,38 +9,23 @@ var view1 = angular.module('myApp.view1', ['ngRoute'])
   });
 }]);
 
-view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsService, ProductItemsService, ExtraItemsService, SconeItemsService) {
+view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsService, ProductItemsService, ExtraItemsService, SconeItemsService, $routeParams) {
+
 
     $scope.models = {
         selected: null,
         lists: {"A": [], "B": [], "C": [], "D": [], "prodList": [], "extraProds": [], 'hashmap': {}, 'selectQty': []}
     };
 
-    $scope.my = {'num': 0, 'num2': '', 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'flavorLeft': 0, 'extraAllowed': 0, 'flavorAllowed': 0, 'extraval': 0, 'flavorval': 0, 'extraLeft': 0};
+    $scope.my = {'num': 0, 'num2': '', 'totalval': 0, 'totalAllowed': 0, 'currentTotal': 0, 'flavorLeft': 0, 'extraAllowed': 0, 'flavorAllowed': 0, 'extraval': 0, 'flavorval': 0, 'extraLeft': 0, 'selectProduct': $routeParams.PRODUCT};
     $scope.boxfull = false;
     $scope.showExtras = false;
     $scope.model = {};
     $scope.model.qty = 1;
 
 
-    // main data ajax call to get the json file
-    //$http.get('data/product.json').success(function (data) {
-        //$scope.models.lists.A = data.Products.Flavor.FlavorName;
-        //$scope.models.lists.C = data.Products.ExtraChoice.ExtraChoiceName;
-        //$scope.models.lists.D = data.Products.Flavor.scones_shortbread;
-        //var prods = data.Products.Product.ProductName;
-        //for (var i = 0; i < prods.length; i++) {
-        //    //console.log(prods[i]);
-        //    if(prods[i].ExtraQuantity > 0){
-        //        $scope.models.lists.extraProds.push(prods[i]);
-        //    }
-        //    else {
-        //        $scope.models.lists.prodList.push(prods[i]);
-        //    }
-        //}
 
-        //console.log($scope.flavors[0].Name)
-    //});
+
     var products = ProductItemsService.getItems();
     products.$loaded()
         .then(function() {
@@ -53,6 +38,19 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
                         $scope.models.lists.prodList.push(products[i]);
                     }
                 }
+
+                }
+            if ($routeParams.PRODUCT) {
+                var prod = {};
+                for (var i= 0; i < $scope.models.lists.prodList.length; ++i){
+                    if($scope.models.lists.prodList[i].Id == $routeParams.PRODUCT){
+                        prod = $scope.models.lists.prodList[i];
+                        //console.log(prod);
+                        break;
+                    }
+                }
+                $scope.setFlavorAllowed( prod );
+                $scope.setPrice( prod.Price );
             }
         });
 
@@ -77,7 +75,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
         });
 
     var scones_shortbread = SconeItemsService.getItems();
-    console.log(scones_shortbread);
+    //console.log(scones_shortbread);
     scones_shortbread.$loaded()
         .then(function() {
             for (var i = 0; i < scones_shortbread.length; i++) {
@@ -87,19 +85,19 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
             }
         });
 
-
-    // function called with you click on a flavor selection in the left most product list
+// function called with you click on a flavor selection in the left most product list
     $scope.setFlavorAllowed = function(prod){
         //console.log(prod);
         $scope.product = prod;
         $scope.prodid = prod.Id;
-        $scope.my.flavorAllowed = $scope.my.num;
+        $scope.my.flavorAllowed = prod.Quantity;
         $scope.my.extraAllowed = 0;
         if($scope.my.flavorval > $scope.my.flavorAllowed){
             $scope.emptyBox();
         }
         $scope.setboxfull();
     }
+
 
     // function called when you click on the extras in the left most product list
     $scope.setExtraAllowed = function(packQty, extQty, prodid){
@@ -187,7 +185,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
     // this is to add flavor packs to the right side container
     $scope.addItem = function(index, item, model){
-        console.log($scope.prodid + " " + item.ExcludedId);
+        //console.log($scope.prodid + " " + item.ExcludedId);
         if(item.ExcludedId) {
             if (item.ExcludedId.indexOf($scope.prodid) != -1){
             console.log(item.ExcludedId.indexOf($scope.prodid));
@@ -302,6 +300,22 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
         //console.log($scope.models.prodList.Quantity);
 
+    //$scope.init = function () {
+    //    if ($routeParams.PRODUCT) {
+    //        var prod = {};
+    //        for (var i= 0; i<= $scope.models.lists.prodList.length; ++i){
+    //            console.log(i);
+    //            //if($scope.models.lists.prodList[i].Id == $routeParams.PRODUCT){
+    //            //    prod = $scope.models.lists.prodList[i];
+    //            //    return;
+    //            //}
+    //        }
+    //
+    //       $scope.setFlavorAllowed( prod );
+    //    }
+    //}
+    //    $scope.init();
+
 });
 
 angular.module('myApp.view1').directive('carttextarea', function(){
@@ -314,7 +328,7 @@ angular.module('myApp.view1').directive('carttextarea', function(){
         //},
         link: function(scope, elem, attrs){
             scope.$watch('models.lists.B', function(newval, oldval){
-                console.log("model change: " + newval);
+                //console.log("model change: " + newval);
                 var textarray = [];
                 var textstring = "";
                 var arrayLength = newval.length;
@@ -339,3 +353,24 @@ angular.module('myApp.view1').directive('bsPopover', function() {
 });
 
 
+    function addCSS(url, title) {
+        var headtg = document.getElementsByTagName('head')[0];
+        if (!headtg) {
+            return;
+        }
+
+        var linktg = document.createElement('link');
+        linktg.type = 'text/css';
+        linktg.rel = 'stylesheet';
+        linktg.href = url;
+        linktg.title = title;
+        headtg.appendChild(linktg);
+    }
+
+
+$(document).ready(function(){
+
+    //addCSS('/global/css/app.css', 'AppCss');
+    addCSS('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', 'Bootstrop');
+    $('head').append('<link rel="stylesheet" href="/global/css/app.css" type="text/css" />');
+});

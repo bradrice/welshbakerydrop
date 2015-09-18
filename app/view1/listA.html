@@ -13,10 +13,10 @@
 <!--<p class="list-label">Scones and Shortbread</p>-->
 <!--<ul class="list-group flavors" style="min-height: 80px;">-->
     <li class="list-group-item list-group-item-info ctrlItem">Scones and Shortbreads</li>
-    <li ng-repeat="(id, item) in models.lists.D"
+    <li ng-repeat="(id, item) in models.lists.D" bs-popover
         class="list-group-item ctrlItem scone">
         <div class="inline">
-            <span class="glyphicon glyphicon-picture btn btn-default btn-xs pic" id="img{{$index}}" data-container="body" data-toggle="popover" title="{{item.Name}}" data-original-title="{{item.Name}}" rel="popover" data-content="<img src='includes/images/tempbox.jpg' alt='image'/>"></span>
+            <span class="glyphicon glyphicon-picture btn btn-default btn-xs pic" id="img{{$index}}" data-container="body" data-toggle="popover" title="{{item.Name}}" data-original-title="{{item.Name}}" rel="popover" data-content="<img src='{{item.image}}' alt='image'/>"></span>
             {{item.Name}}
         </div>
         <span class="glyphicon glyphicon-plus btn btn-default btn-xs" style="float: right;" ng-click="addItem($index, item, model);"></span>

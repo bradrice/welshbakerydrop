@@ -20,6 +20,17 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     $scope.scones_shortbread = SconeItemsService.getItems();
     //
 
+
+//// The obj variable will appear to be empty here and won't contain any remote data,
+//// because the request to the server has not returned when we reach this line.
+//    console.log($firebaseObject(prodName));
+    $scope.product = {};
+    $scope.addnew = false;
+    $scope.showlogin = true;
+    //console.log(ref);
+
+    //flavors
+
     $scope.addFlavorItem = function () {
         //ItemsService.addItem(angular.copy($scope.newItem));
         //$scope.newItem = { name: '', description: '', count: 0 };
@@ -34,18 +45,14 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
         FlavorItemsService.removeItem(id);
     };
 
-    $scope.toggleActive = true;
+    $scope.toggleFlavorActive = true;
 
     $scope.setFlavorActive = function(id, item) {
         item.active = !item.active;
         $scope.updateFlavorItem(id);
-//// The obj variable will appear to be empty here and won't contain any remote data,
-//// because the request to the server has not returned when we reach this line.
-//    console.log($firebaseObject(prodName));
-    $scope.product = {};
-    $scope.addnew = false;
-    $scope.showlogin = true;
-    //console.log(ref);
+    }
+
+    //extras
 
         $scope.addExtraItem = function () {
             //ItemsService.addItem(angular.copy($scope.newItem));
@@ -61,6 +68,36 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
             ExtraItemsService.removeItem(id);
         };
 
+        $scope.setExtraActive = function(id, item) {
+            item.active = !item.active;
+            $scope.updateExtraItem(id);
+        }
+
+
+    // Scones
+
+        $scope.addSconeItem = function () {
+            //ItemsService.addItem(angular.copy($scope.newItem));
+            //$scope.newItem = { name: '', description: '', count: 0 };
+        };
+
+        $scope.updateSconeItem = function (id) {
+            console.log(id);
+            SconeItemsService.updateItem(id);
+        };
+
+        $scope.removeSconeItem = function (id) {
+            SconeItemsService.removeItem(id);
+        };
+
+        $scope.toggleSconeActive = true;
+
+        $scope.setSconeActive = function(id, item) {
+            item.active = !item.active;
+            $scope.updateSconeItem(id);
+        }
+
+        // Products
 
         $scope.addProductItem = function () {
             //ItemsService.addItem(angular.copy($scope.newItem));
@@ -75,6 +112,13 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
         $scope.removeProductItem = function (id) {
             ProductItemsService.removeItem(id);
         };
+
+        $scope.toggleProductActive = true;
+
+        $scope.setProductActive = function(id, item) {
+            item.active = !item.active;
+            $scope.updateSconeItem(id);
+        }
 
 
     $scope.addProduct = function() {
@@ -111,7 +155,7 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
 
 
 
-}
+//}
 
         //modalInstance.result.then(function (selectedItem) {
         //    $scope.selected = selectedItem;
