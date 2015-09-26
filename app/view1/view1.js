@@ -22,6 +22,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
     $scope.showExtras = false;
     $scope.model = {};
     $scope.model.qty = 1;
+    $scope.product = {};
 
 
 
@@ -58,7 +59,7 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
                 for (var i = 0; i < $scope.models.lists.extraProds.length; ++i) {
                     if ($scope.models.lists.extraProds[i].Id == $routeParams.PRODUCT) {
                         xtraprod = $scope.models.lists.extraProds[i];
-                        console.log(xtraprod);
+                        //console.log(xtraprod);
                         $scope.setExtraAllowed(xtraprod)
                         $scope.setPrice(xtraprod.Price);
                         break;
@@ -109,13 +110,22 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
         if($scope.my.flavorval > $scope.my.flavorAllowed){
             $scope.emptyBox();
         }
+        if($scope.my.extraval > 0){
+            for(var i=0; i < $scope.models.lists.B.length; i++){
+               if($scope.models.lists.B[i].category == 'Extra'){
+                   //console.log($scope.models.lists.B[i]);
+                   $scope.emptyBox();
+                   break;
+               }
+            }
+        }
         $scope.setboxfull();
     }
 
 
     // function called when you click on the extras in the left most product list
     $scope.setExtraAllowed = function(prod){
-        //console.log(packQty + " : " + extQty);
+        //console.log(prod);
         $scope.product = prod;
         $scope.prodid = prod.Id;
         $scope.my.flavorAllowed = prod.Quantity;
@@ -244,33 +254,31 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
     // this is to add extra items to the right side
     $scope.addExtItem = function(index, item, model){
         if($scope.my.extraAllowed == 0){
-            $('#emptyModal').modal();
+            $('#dialogModal').modal();
             return;
         }
+            if ($scope.my.extraAllowed > $scope.my.extraval) {
+                if (item.Id in $scope.models.lists.hashmap) {
+                    //console.log('true - ' + item.Id + ' item already exists');
+                    $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
+                }
+                else {
+                    //console.log('false - need to create item in hashmap');
+                    $scope.models.lists.hashmap[item.Id] = {};
+                    $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
+                    $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
+                    $scope.models.lists.hashmap[item.Id]['id'] = item.Id;
+                    $scope.models.lists.hashmap[item.Id]['category'] = 'Extra';
+                    var bitem = $scope.models.lists.hashmap[item.Id];
+                    //console.log(bitem);
+                    $scope.models.lists.B.push(bitem);
+                }
 
-        if($scope.my.extraAllowed > $scope.my.extraval){
-            if(item.Id in $scope.models.lists.hashmap){
-                //console.log('true - ' + item.Id + ' item already exists');
-                $scope.models.lists.hashmap[item.Id]['quantity'] = $scope.models.lists.hashmap[item.Id]['quantity'] + parseInt(model.qty);
+                $scope.setboxfull();
             }
             else {
-                //console.log('false - need to create item in hashmap');
-                $scope.models.lists.hashmap[item.Id] = {};
-                $scope.models.lists.hashmap[item.Id]['name'] = item.Name;
-                $scope.models.lists.hashmap[item.Id]['quantity'] = parseInt(model.qty);
-                $scope.models.lists.hashmap[item.Id]['id'] = item.Id;
-                $scope.models.lists.hashmap[item.Id]['category'] = 'Extra';
-                var bitem = $scope.models.lists.hashmap[item.Id];
-                //console.log(bitem);
-                $scope.models.lists.B.push(bitem);
+                $('#extrafullModal').modal();
             }
-
-            $scope.setboxfull();
-        }
-        else {
-            $('#extrafullModal').modal();
-        }
-
     };
 
 
@@ -316,7 +324,10 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
 });
 
+
+
 angular.module('myApp.view1').directive('carttextarea', function(){
+
     return {
         template: '<textarea type="hidden" name="{{product.YourOption}}" id="customProduct" class="form-control"></textarea>',
         restrict: "E",
@@ -333,6 +344,9 @@ angular.module('myApp.view1').directive('carttextarea', function(){
                 for (var i = 0; i < arrayLength; i++) {
                   textarray.push(newval[i]);
                 }
+                textarray.sort(function(a, b){
+                    return a.category < b.category;
+                });
                 for (var i = 0; i < newval.length; i++) {
                     textstring += textarray[i].name + " (" + textarray[i].quantity + ")\n";
                 }
