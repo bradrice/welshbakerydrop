@@ -42,15 +42,29 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
                 }
             if ($routeParams.PRODUCT) {
                 var prod = {};
-                for (var i= 0; i < $scope.models.lists.prodList.length; ++i){
-                    if($scope.models.lists.prodList[i].Id == $routeParams.PRODUCT){
+                var xtraprod = {};
+                for (var i = 0; i < $scope.models.lists.prodList.length; ++i) {
+                    if ($scope.models.lists.prodList[i].Id == $routeParams.PRODUCT) {
                         prod = $scope.models.lists.prodList[i];
                         //console.log(prod);
+                        $scope.setFlavorAllowed(prod);
+                        $scope.setPrice(prod.Price);
+                        break;
+                    }
+
+                }
+
+
+                for (var i = 0; i < $scope.models.lists.extraProds.length; ++i) {
+                    if ($scope.models.lists.extraProds[i].Id == $routeParams.PRODUCT) {
+                        xtraprod = $scope.models.lists.extraProds[i];
+                        console.log(xtraprod);
+                        $scope.setExtraAllowed(xtraprod)
+                        $scope.setPrice(xtraprod.Price);
                         break;
                     }
                 }
-                $scope.setFlavorAllowed( prod );
-                $scope.setPrice( prod.Price );
+
             }
         });
 
@@ -100,11 +114,13 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
 
 
     // function called when you click on the extras in the left most product list
-    $scope.setExtraAllowed = function(packQty, extQty, prodid){
+    $scope.setExtraAllowed = function(prod){
         //console.log(packQty + " : " + extQty);
-        $scope.prodid = prodid;
-        $scope.my.extraAllowed = parseInt(extQty);
-        $scope.my.flavorAllowed = parseInt(packQty);
+        $scope.product = prod;
+        $scope.prodid = prod.Id;
+        $scope.my.flavorAllowed = prod.Quantity;
+        $scope.my.extraAllowed = parseInt(prod.ExtraQuantity);
+        //$scope.my.flavorAllowed = parseInt(prod.);
         $scope.showExtras = true;
         if($scope.my.flavorval > $scope.my.flavorAllowed){
             $scope.emptyBox();
@@ -297,24 +313,6 @@ view1.controller('View1Ctrl', function($scope, $http, $filter, FlavorItemsServic
       $scope.$watch('models.lists.B', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
       }, true);
-
-        //console.log($scope.models.prodList.Quantity);
-
-    //$scope.init = function () {
-    //    if ($routeParams.PRODUCT) {
-    //        var prod = {};
-    //        for (var i= 0; i<= $scope.models.lists.prodList.length; ++i){
-    //            console.log(i);
-    //            //if($scope.models.lists.prodList[i].Id == $routeParams.PRODUCT){
-    //            //    prod = $scope.models.lists.prodList[i];
-    //            //    return;
-    //            //}
-    //        }
-    //
-    //       $scope.setFlavorAllowed( prod );
-    //    }
-    //}
-    //    $scope.init();
 
 });
 

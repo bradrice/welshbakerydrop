@@ -1,5 +1,5 @@
 <ul class="list-group" style="min-height: 80px;">
-    <li ng-repeat="(id, item) in models.lists.B"
+    <li ng-repeat="(id, item) in models.lists.B | orderBy:'-category'"
         class="list-group-item ctrlItem"
             >
         <div class="addedItem inline">

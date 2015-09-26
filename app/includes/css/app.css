@@ -1,71 +1,31 @@
 /* app css stylesheet */
 /* line 4, ../scss/app.scss */
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-/* line 11, ../scss/app.scss */
-.menu:before {
-  content: "[";
-}
-
-/* line 15, ../scss/app.scss */
-.menu:after {
-  content: "]";
-}
-
-/* line 19, ../scss/app.scss */
-.menu > li {
-  display: inline;
-}
-
-/* line 23, ../scss/app.scss */
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-/* line 28, ../scss/app.scss */
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
-/* line 33, ../scss/app.scss */
-ul[dnd-list], ul[dnd-list] > li {
-  position: relative;
-}
-
-/* line 37, ../scss/app.scss */
 div.box {
   background-color: #84c687;
 }
 
-/* line 41, ../scss/app.scss */
+/* line 8, ../scss/app.scss */
 div.box li.list-group-item {
   opacity: .8;
 }
 
-/* line 45, ../scss/app.scss */
+/* line 12, ../scss/app.scss */
 li.selected {
   background-color: #dff0d8;
 }
 
-/* line 49, ../scss/app.scss */
+/* line 16, ../scss/app.scss */
 .express {
   color: #d2322d;
 }
 
-/* line 53, ../scss/app.scss */
+/* line 20, ../scss/app.scss */
 .flavors {
   max-height: 220px;
   overflow: scroll;
 }
 
-/* line 58, ../scss/app.scss */
+/* line 25, ../scss/app.scss */
 li.ctrlItem {
   display: -webkit-flex;
   display: flex;
@@ -76,13 +36,13 @@ li.ctrlItem {
   padding: 6px;
 }
 
-/* line 64, ../scss/app.scss */
+/* line 31, ../scss/app.scss */
 li.ctrlItem > span.btn-group {
   -webkit-align-items: flex-start;
   align-items: flex-start;
 }
 
-/* line 68, ../scss/app.scss */
+/* line 35, ../scss/app.scss */
 div.addedItem {
   -webkit-align-self: flex-start;
   align-self: flex-start;
@@ -91,84 +51,84 @@ div.addedItem {
   display: inline-block;
 }
 
-/* line 75, ../scss/app.scss */
+/* line 42, ../scss/app.scss */
 span.emph {
   color: #d1250b;
   font-weight: bold;
 }
 
-/* line 80, ../scss/app.scss */
+/* line 47, ../scss/app.scss */
 #customProduct {
   min-height: 200px;
 }
 
-/* line 84, ../scss/app.scss */
+/* line 51, ../scss/app.scss */
 p.list-label {
   font-style: italic;
   color: #d1250b;
 }
 
-/* line 89, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 .flav {
   background-color: #fff;
 }
 
-/* line 93, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 .scone {
   background-color: #fff;
 }
 
-/* line 97, ../scss/app.scss */
+/* line 64, ../scss/app.scss */
 .pic {
   margin-right: 6px;
 }
 
-/* line 101, ../scss/app.scss */
+/* line 68, ../scss/app.scss */
 div.inline {
   display: inline;
   -webkit-flex: 1 0;
   flex: 1 0;
 }
 
-/* line 106, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
 .panel-info > .panel-heading {
   color: #fff;
   background-color: #333333;
   border-color: #333333;
 }
 
-/* line 112, ../scss/app.scss */
+/* line 79, ../scss/app.scss */
 .panel-info, .panel-default {
   border-color: #666666;
 }
 
-/* line 116, ../scss/app.scss */
+/* line 83, ../scss/app.scss */
 .list-group-item-info {
   color: #fff;
   background-color: #666666;
 }
 
-/* line 121, ../scss/app.scss */
+/* line 88, ../scss/app.scss */
 .btn-primary {
   color: #fff;
   background-color: #333333;
   border-color: #333333;
 }
 
-/* line 127, ../scss/app.scss */
+/* line 94, ../scss/app.scss */
 .btn-primary:hover {
   color: #fff;
   background-color: #222222;
   border-color: #222222;
 }
 
-/* line 133, ../scss/app.scss */
+/* line 100, ../scss/app.scss */
 button.active {
   background-color: #008855 !important;
   color: #fff !important;
 }
 
-/* line 138, ../scss/app.scss */
+/* line 105, ../scss/app.scss */
 button.inactive {
   background-color: #aaaaaa;
 }
