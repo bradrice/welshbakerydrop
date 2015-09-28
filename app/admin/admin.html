@@ -7,11 +7,11 @@
         <table class="table">
             <thead>
             <tr>
-                <td class="col-sm-4"">Name</td>
-                <td class="col-sm-1">Product Id</td>
-                <td class="col-sm-5">Image</td>
-                <td class="col-sm-1">Active</td>
-                <td class="col-sm-1">Remove</td>
+                <th class="col-sm-4">Name</th>
+                <th class="col-sm-1">Product Id</th>
+                <th class="col-sm-5">Image</th>
+                <th class="col-sm-1">Active</th>
+                <th class="col-sm-1">Remove</th>
             </tr>
             </thead>
             <tbody>
@@ -23,17 +23,34 @@
                 <td><button class="btn btn-default btn-danger" ng-click="removeFlavorItem(id);">Remove</button></td>
             </tr>
             </tbody>
+            </table>
+        <h4>Add flavor</h4>
+        <form id="addFlavor" class="form" role="form" novalidate ng-submit="addFlavorItem()">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td class="col-sm-4"><input type="text" ng-model="newFlavorItem.Name" class="form-control"/></td>
+                    <td class="col-sm-1"><input type="text" ng-model="newFlavorItem.ProductId" class="form-control"//></td>
+                    <td class="col-sm-5"><input type="text" ng-model="newFlavorItem.image" class="form-control"//></td>
+                    <td class="col-sm-1">
+                        <label for="active" class="radio-inline"><input type="radio" name="active" id="active" value="active"/>Active</label>
+                        <label for="inactive" class="radio-inline"><input type="radio" name="active" id="inactive" value="inactive"/>Inactive</label>
+                    </td>
+                    <td class="col-sm-1"><input type="submit" value="Add" class="btn btn-default btn-primary"></td>
+                </tr>
+            </tbody>
         </table>
+            </form>
 
         <h4>Scones/Shortbread</h4>
         <table class="table">
             <thead>
             <tr>
-                <td class="col-sm-4"">Name</td>
-                <td class="col-sm-1">Product Id</td>
-                <td class="col-sm-6">Image</td>
-                <td class="col-sm-1">Active</td>
-                <td class="col-sm-1">Remove</td>
+                <th class="col-sm-4">Name</th>
+                <th class="col-sm-1">Product Id</th>
+                <th class="col-sm-6">Image</th>
+                <th class="col-sm-1">Active</th>
+                <th class="col-sm-1">Remove</th>
             </tr>
             </thead>
             <tbody>
@@ -51,10 +68,10 @@
         <table class="table">
             <thead>
             <tr>
-                <td class="col-sm-4"">Name</td>
-                <td class="col-sm-1">Product Id</td>
-                <td class="col-sm-6">Image</td>
-                <td class="col-sm-1">Active</td>
+                <th class="col-sm-4">Name</th>
+                <th class="col-sm-1">Product Id</th>
+                <th class="col-sm-6">Image</th>
+                <th class="col-sm-1">Active</th>
             </tr>
             </thead>
             <tbody>
@@ -73,18 +90,18 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <td>Name</td>
-                        <td>Catalog Id</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Active</td>
+                        <th>Name</th>
+                        <th>Catalog Id</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Active</th>
                     </tr>
                     <tr>
-                        <td>YourOption</td>
-                        <td>Extra</td>
-                        <td>ExtraQuantity</td>
-                        <td></td>
-                        <td></td>
+                        <th>YourOption</th>
+                        <th>Extra</th>
+                        <th>ExtraQuantity</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tr>
@@ -100,6 +117,8 @@
                             <td><input type="text" ng-model="item.YourOption" class="form-control"/></td>
                             <td><input type="text" ng-model="item.Extra" class="form-control"/></td>
                             <td><input type="text" ng-model="item.ExtraQuantity" class="form-control"/></td>
+                            <td></td>
+                            <td><button class="btn btn-default btn-danger" ng-click="removeProductItem(id);">Remove</button></td>
                         </tr>
                     </tbody>
                 </table>
