@@ -18,7 +18,7 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     $scope.flavors = FlavorItemsService.getItems();
     $scope.extras = ExtraItemsService.getItems();
     $scope.scones_shortbread = SconeItemsService.getItems();
-    $scope.newFlavorItem = { Name: '', ProductId: '', image: '', active: "inactive" };
+    $scope.newFlavorItem = { Name: '', ProductId: '', image: '', active: false };
     //
 
 
@@ -30,11 +30,12 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     $scope.showlogin = true;
     //console.log(ref);
 
+
     //flavors
 
     $scope.addFlavorItem = function () {
-        FlavorItemsService.addItem(angular.copy($scope.newItem));
-        $scope.newFlavorItem = { Name: '', ProductId: '', image: '', active: "inactive" };
+        FlavorItemsService.addItem(angular.copy($scope.newFlavorItem));
+        $scope.newFlavorItem = { Name: '', ProductId: '', image: '', active: false };
     };
 
     $scope.updateFlavorItem = function (id) {

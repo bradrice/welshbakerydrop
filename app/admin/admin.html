@@ -33,8 +33,7 @@
                     <td class="col-sm-1"><input type="text" ng-model="newFlavorItem.ProductId" class="form-control"//></td>
                     <td class="col-sm-5"><input type="text" ng-model="newFlavorItem.image" class="form-control"//></td>
                     <td class="col-sm-1">
-                        <label for="active" class="radio-inline"><input type="radio" name="active" id="active" value="active"/>Active</label>
-                        <label for="inactive" class="radio-inline"><input type="radio" name="active" id="inactive" value="inactive"/>Inactive</label>
+                        <label for="active" class="radio-inline"><input type="checkbox" name="active" id="active" ng-model="newFlavorItem.active" /> Active: {{newFlavorItem.active}}</label>
                     </td>
                     <td class="col-sm-1"><input type="submit" value="Add" class="btn btn-default btn-primary"></td>
                 </tr>
