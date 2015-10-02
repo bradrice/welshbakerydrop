@@ -19,6 +19,8 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     $scope.extras = ExtraItemsService.getItems();
     $scope.scones_shortbread = SconeItemsService.getItems();
     $scope.newFlavorItem = { Name: '', ProductId: '', image: '', active: false };
+    $scope.newSconeItem = { Name: '', ProductId: '', image: '', active: false };
+    $scope.newExtraItem = { Name: '', ProductId: '', image: '', active: false };
     //
 
 
@@ -57,8 +59,8 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     //extras
 
         $scope.addExtraItem = function () {
-            //ItemsService.addItem(angular.copy($scope.newItem));
-            //$scope.newItem = { name: '', description: '', count: 0 };
+            ExtraItemsService.addItem(angular.copy($scope.newExtraItem));
+            $scope.newExtraItem = { Name: '', ProductId: '', image: '', active: false };
         };
 
         $scope.updateExtraItem = function (id) {
@@ -79,8 +81,8 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
     // Scones
 
         $scope.addSconeItem = function () {
-            //ItemsService.addItem(angular.copy($scope.newItem));
-            //$scope.newItem = { name: '', description: '', count: 0 };
+            SconeItemsService.addItem(angular.copy($scope.newSconeItem));
+            $scope.newSconeItem = { Name: '', ProductId: '', image: '', active: false };
         };
 
         $scope.updateSconeItem = function (id) {

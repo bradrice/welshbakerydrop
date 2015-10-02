@@ -62,6 +62,22 @@
             </tr>
             </tbody>
         </table>
+        <h4>Add Scone/shortbread</h4>
+        <form id="addScone" class="form" role="form" novalidate ng-submit="addSconeItem()">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td class="col-sm-4"><input type="text" ng-model="newSconeItem.Name" class="form-control"/></td>
+                    <td class="col-sm-1"><input type="text" ng-model="newSconeItem.ProductId" class="form-control"//></td>
+                    <td class="col-sm-5"><input type="text" ng-model="newSconeItem.image" class="form-control"//></td>
+                    <td class="col-sm-1">
+                        <label for="active" class="radio-inline"><input type="checkbox" name="active" id="active" ng-model="newSconeItem.active" /> Active: {{newSconeItem.active}}</label>
+                    </td>
+                    <td class="col-sm-1"><input type="submit" value="Add" class="btn btn-default btn-primary"></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
 
         <h4>Extras</h4>
         <table class="table">
@@ -79,9 +95,26 @@
                 <td><input type="text" ng-model="item.ProductId" ng-blur="updateExtraItem(id)" class="form-control"//></td>
                 <td><input type="text" ng-model="item.image" class="form-control" ng-blur="updateExtraItem(id)" /></td>
                 <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setExtraActive(id, item); toggleExtraActive = !toggleExtraActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
+                <td><button class="btn btn-default btn-danger" ng-click="removeExtraItem(id);">Remove</button></td>
             </tr>
             </tbody>
         </table>
+        <h4>Add Extra</h4>
+        <form id="addExtra" class="form" role="form" novalidate ng-submit="addExtraItem()">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td class="col-sm-4"><input type="text" ng-model="newExtraItem.Name" class="form-control"/></td>
+                    <td class="col-sm-1"><input type="text" ng-model="newExtraItem.ProductId" class="form-control"//></td>
+                    <td class="col-sm-5"><input type="text" ng-model="newExtraItem.image" class="form-control"//></td>
+                    <td class="col-sm-1">
+                        <label for="active" class="radio-inline"><input type="checkbox" name="active" id="active" ng-model="newExtraItem.active" /> Active: {{newExtraItem.active}}</label>
+                    </td>
+                    <td class="col-sm-1"><input type="submit" value="Add" class="btn btn-default btn-primary"></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
         <div class="row">
             <div class="col-sm-12">
