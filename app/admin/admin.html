@@ -45,9 +45,10 @@
         <table class="table">
             <thead>
             <tr>
-                <th class="col-sm-4">Name</th>
+                <th class="col-sm-3">Name</th>
                 <th class="col-sm-1">Product Id</th>
-                <th class="col-sm-6">Image</th>
+                <th class="col-sm-4">Image</th>
+                <th class="col-sm-2">ExcludedId</th>
                 <th class="col-sm-1">Active</th>
                 <th class="col-sm-1">Remove</th>
             </tr>
@@ -57,6 +58,7 @@
                 <td><input type="text" ng-model="item.Name" ng-blur="updateSconeItem(id)" class="form-control"/></td>
                 <td><input type="text" ng-model="item.ProductId" ng-blur="updateSconeItem(id)" class="form-control"//></td>
                 <td><input type="text" ng-model="item.image" ng-blur="updateSconeItem(id)"  class="form-control"/></td>
+                <td><input type="text" ng-model="item.ExcludedId" ng-blur="updateSconeItem(id)"  class="form-control"/></td>
                 <td><button class="btn btn-default" ng-class="item.active ? 'active' : 'inactive'" ng-click="setSconeActive(id, item); toggleSconeActive = !toggleSconeActive;"><span ng-show="item.active">Active</span><span ng-hide="item.active" >Inactive</span></button></td>
                 <td><button class="btn btn-default btn-danger" ng-click="removeSconeItem(id);">Remove</button></td>
             </tr>
@@ -132,7 +134,7 @@
                         <th>YourOption</th>
                         <th>Extra</th>
                         <th>ExtraQuantity</th>
-                        <th></th>
+                        <th>IdS</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -149,7 +151,7 @@
                             <td><input type="text" ng-model="item.YourOption" class="form-control"/></td>
                             <td><input type="text" ng-model="item.Extra" class="form-control"/></td>
                             <td><input type="text" ng-model="item.ExtraQuantity" class="form-control"/></td>
-                            <td></td>
+                            <td><input type="text" ng-model="item.Id" class="form-control"/></td>
                             <td><button class="btn btn-default btn-danger" ng-click="removeProductItem(id);">Remove</button></td>
                         </tr>
                     </tbody>

@@ -344,12 +344,15 @@ angular.module('myApp.view1').directive('carttextarea', function(){
                 for (var i = 0; i < arrayLength; i++) {
                   textarray.push(newval[i]);
                 }
-                textarray.sort(function(a, b){
-                    return a.category < b.category;
-                });
+                //textarray.sort(function(a, b){
+                //    return a.category < b.category;
+                //});
+                var newarray = _.sortBy(textarray, 'category');
+                newarray.reverse();
                 for (var i = 0; i < newval.length; i++) {
-                    textstring += textarray[i].name + " (" + textarray[i].quantity + ")\n";
+                        textstring += newarray[i].name + " (" + newarray[i].quantity + ")\n";
                 }
+                console.log(textstring);
                 $("#customProduct").val(textstring);
 
 
@@ -380,9 +383,9 @@ angular.module('myApp.view1').directive('bsPopover', function() {
     }
 
 
-$(document).ready(function(){
-
-    //addCSS('/global/css/app.css', 'AppCss');
-    addCSS('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', 'Bootstrop');
-    $('head').append('<link rel="stylesheet" href="/global/css/app.css" type="text/css" />');
-});
+//$(document).ready(function(){
+//
+//    //addCSS('/global/css/app.css', 'AppCss');
+//    addCSS('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', 'Bootstrop');
+//    $('head').append('<link rel="stylesheet" href="/global/css/app.css" type="text/css" />');
+//});

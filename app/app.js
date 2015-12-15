@@ -96,7 +96,7 @@ app.factory('ProductItemsService', ['$firebaseArray', '$firebaseObject', 'FIREBA
     };
 
     var removeItem = function (id) {
-        console.log('removing ' + id)
+        //console.log('removing ' + id)
         items.$remove(id);
     };
 

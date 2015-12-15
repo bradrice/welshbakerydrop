@@ -169,8 +169,12 @@ admin.controller('AdminCtrl', ["$scope", '$firebaseObject', '$firebaseArray', 'F
 
 }]);
 
-admin.controller('LoginCtrl', ['$scope', '$rootScope',  "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
+admin.controller('LoginCtrl', ['$scope', '$rootScope',  "$firebaseAuth", "$location", function($scope, $rootScope, $firebaseAuth, $location) {
         var ref = new Firebase("https://welshbaker.firebaseio.com");
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
 
     $scope.signIn = function(){
         ref.authWithPassword({
@@ -182,6 +186,9 @@ admin.controller('LoginCtrl', ['$scope', '$rootScope',  "$firebaseAuth", functio
             } else {
                 console.log("Authenticated successfully with payload:", authData);
             }
+        });
+        ref.onAuth(function(authData) {
+            $location.path("/admin");
         });
     }
 
